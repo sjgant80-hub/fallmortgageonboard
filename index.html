@@ -182,19 +182,19 @@ input[type=radio]{width:auto;margin-right:6px;accent-color:var(--brass)}
 <body>
 <div class="app">
 <header>
-  <div class="brand">
-    <div class="mark">&#9674;</div>
-    <div>
-      <div class="name" id="brandName">FallMortgageOnboard</div>
-      <div class="seal" id="brandSeal">SOVEREIGN &middot; MCOB &middot; AML &middot; P863</div>
-    </div>
-  </div>
-  <nav class="tabs" id="nav"></nav>
-  <div class="tools-r">
-    <button class="tool-btn" id="tierBadge" onclick="openModal('settings')">T0</button>
-    <button class="tool-btn" onclick="openModal('audit')">audit</button>
-    <button class="tool-btn primary" onclick="newClient()">+ client</button>
-  </div>
+ <div class="brand">
+ <div class="mark">&#9674;</div>
+ <div>
+ <div class="name" id="brandName">FallMortgageOnboard</div>
+ <div class="seal" id="brandSeal">SOVEREIGN &middot; MCOB &middot; AML &middot; P863</div>
+ </div>
+ </div>
+ <nav class="tabs" id="nav"></nav>
+ <div class="tools-r">
+ <button class="tool-btn" id="tierBadge" onclick="openModal('settings')">T0</button>
+ <button class="tool-btn" onclick="openModal('audit')">audit</button>
+ <button class="tool-btn primary" onclick="newClient()">+ client</button>
+ </div>
 </header>
 <main id="view"></main>
 </div>
@@ -206,39 +206,39 @@ input[type=radio]{width:auto;margin-right:6px;accent-color:var(--brass)}
 // prime 863 · MIT · MCOB-shaped · 11-step fact-find · AML CDD · FG21/1
 const TOOLNAME='fallmortgageonboard',VERSION='1.0.0',PRIME=863,STORE='fallmortgageonboard-v1';
 const TABS=[
-  {id:'dashboard',name:'Dashboard',ico:'◐'},
-  {id:'clients',name:'Clients',ico:'◊'},
-  {id:'firm',name:'Firm',ico:'⌂'},
-  {id:'advisers',name:'Advisers',ico:'△'},
-  {id:'help',name:'Q & A',ico:'?'},
+ {id:'dashboard',name:'Dashboard',ico:'◐'},
+ {id:'clients',name:'Clients',ico:'◊'},
+ {id:'firm',name:'Firm',ico:'⌂'},
+ {id:'advisers',name:'Advisers',ico:'△'},
+ {id:'help',name:'Q & A',ico:'?'},
 ];
 const WIZARD_STEPS=[
-  {id:'type',name:'Type',n:'1'},
-  {id:'applicant1',name:'Applicant 1',n:'2'},
-  {id:'applicant2',name:'Applicant 2',n:'3'},
-  {id:'contact',name:'Contact',n:'4'},
-  {id:'employment',name:'Employment',n:'5'},
-  {id:'expenditure',name:'Expenditure',n:'6'},
-  {id:'credit',name:'Credit',n:'7'},
-  {id:'demands',name:'D & N',n:'8'},
-  {id:'aml',name:'AML',n:'9'},
-  {id:'vulnerable',name:'Vulnerable',n:'10'},
-  {id:'documents',name:'Docs',n:'11'},
+ {id:'type',name:'Type',n:'1'},
+ {id:'applicant1',name:'Applicant 1',n:'2'},
+ {id:'applicant2',name:'Applicant 2',n:'3'},
+ {id:'contact',name:'Contact',n:'4'},
+ {id:'employment',name:'Employment',n:'5'},
+ {id:'expenditure',name:'Expenditure',n:'6'},
+ {id:'credit',name:'Credit',n:'7'},
+ {id:'demands',name:'D & N',n:'8'},
+ {id:'aml',name:'AML',n:'9'},
+ {id:'vulnerable',name:'Vulnerable',n:'10'},
+ {id:'documents',name:'Docs',n:'11'},
 ];
 const DOC_TYPES=[
-  {id:'passport',label:'Passport',expiry:10*365},
-  {id:'driving-licence',label:'Driving Licence',expiry:10*365},
-  {id:'utility-bill',label:'Utility Bill (3 months)',expiry:90},
-  {id:'bank-statement',label:'Bank Statement (3 months)',expiry:90},
-  {id:'payslip',label:'Payslip (3 months)',expiry:90},
-  {id:'p60',label:'P60',expiry:365},
-  {id:'sa302',label:'SA302 / Tax Calculation',expiry:365},
-  {id:'accounts',label:'Accountant\'s Accounts',expiry:365},
-  {id:'mortgage-statement',label:'Current Mortgage Statement',expiry:180},
-  {id:'credit-report',label:'Credit Report',expiry:90},
-  {id:'proof-of-deposit',label:'Proof of Deposit / Gift Letter',expiry:180},
-  {id:'epc',label:'EPC',expiry:10*365},
-  {id:'other',label:'Other',expiry:365},
+ {id:'passport',label:'Passport',expiry:10*365},
+ {id:'driving-licence',label:'Driving Licence',expiry:10*365},
+ {id:'utility-bill',label:'Utility Bill (3 months)',expiry:90},
+ {id:'bank-statement',label:'Bank Statement (3 months)',expiry:90},
+ {id:'payslip',label:'Payslip (3 months)',expiry:90},
+ {id:'p60',label:'P60',expiry:365},
+ {id:'sa302',label:'SA302 / Tax Calculation',expiry:365},
+ {id:'accounts',label:'Accountant\'s Accounts',expiry:365},
+ {id:'mortgage-statement',label:'Current Mortgage Statement',expiry:180},
+ {id:'credit-report',label:'Credit Report',expiry:90},
+ {id:'proof-of-deposit',label:'Proof of Deposit / Gift Letter',expiry:180},
+ {id:'epc',label:'EPC',expiry:10*365},
+ {id:'other',label:'Other',expiry:365},
 ];
 const EMPLOYMENT_TYPES=['employed','self-employed','director','contractor','retired','unemployed','student','carer','other'];
 const MORTGAGE_TYPES=['purchase','remortgage','product-transfer','buy-to-let','shared-ownership','right-to-buy','help-to-buy','second-charge'];
@@ -246,10 +246,10 @@ const REPAYMENT_TYPES=['capital-and-interest','interest-only','part-and-part'];
 const HIGH_RISK_JURIS=['AF','BY','BI','CF','CD','CU','GN','GW','HT','IR','IQ','KP','LA','LB','LY','ML','MM','MZ','NI','PK','RU','SO','SS','SD','SY','TZ','VE','YE','ZW'];
 
 let state={active:'dashboard',brandName:'FallMortgageOnboard',
-  firm:null,advisers:[],clients:[],audit:[],
-  ui:{filter:'all',search:'',selectedClientId:null,activeAdviserId:null,
-    wizard:null,chat:[],clientSubtab:'overview'},
-  settings:{anthropicKey:'',openaiKey:'',auditChain:true,autoBroadcast:true},
+ firm:null,advisers:[],clients:[],audit:[],
+ ui:{filter:'all',search:'',selectedClientId:null,activeAdviserId:null,
+ wizard:null,chat:[],clientSubtab:'overview'},
+ settings:{anthropicKey:'',openaiKey:'',auditChain:true,autoBroadcast:true},
 };
 
 const $=(s,p=document)=>p.querySelector(s);
@@ -273,708 +273,708 @@ function idbPut(s,v,k){return new Promise(res=>{const tx=db.transaction(s,'readw
 function idbDel(s,k){return new Promise(res=>{const tx=db.transaction(s,'readwrite');tx.objectStore(s).delete(k);tx.oncomplete=()=>res(true)})}
 
 async function loadAll(){
-  if(!db)await openDB();
-  const[firms,advisers,clients,auditArr,uiState]=await Promise.all([idbGetAll('firms'),idbGetAll('advisers'),idbGetAll('clients'),idbGetAll('audit'),idbGet('state','ui')]);
-  state.firm=firms[0]||null;state.advisers=advisers;state.clients=clients;
-  state.audit=auditArr.sort((a,b)=>a.i-b.i);
-  if(uiState){state.ui=Object.assign({},state.ui,uiState.value||{});state.brandName=uiState.brand||'FallMortgageOnboard';state.settings=Object.assign({},state.settings,uiState.settings||{});}
+ if(!db)await openDB();
+ const[firms,advisers,clients,auditArr,uiState]=await Promise.all([idbGetAll('firms'),idbGetAll('advisers'),idbGetAll('clients'),idbGetAll('audit'),idbGet('state','ui')]);
+ state.firm=firms[0]||null;state.advisers=advisers;state.clients=clients;
+ state.audit=auditArr.sort((a,b)=>a.i-b.i);
+ if(uiState){state.ui=Object.assign({},state.ui,uiState.value||{});state.brandName=uiState.brand||'FallMortgageOnboard';state.settings=Object.assign({},state.settings,uiState.settings||{});}
 }
 async function persistUI(){if(!db)await openDB();await idbPut('state',{value:{...state.ui,wizard:null},brand:state.brandName,settings:state.settings},'ui')}
 
-// Audit (Mansoor P3)
+// Audit (P3)
 async function auditLog(action,opts={}){
-  if(!state.settings.auditChain)return;if(!db)await openDB();
-  const prev=state.audit.length?state.audit[state.audit.length-1]:null;
-  const prevHash=prev?prev.docHash:'';const i=(prev?prev.i:0)+1;
-  const payload=opts.payload||{};
-  const entry={id:uid('au'),i,ts:now(),tool:TOOLNAME,adviserId:opts.adviserId||state.ui.activeAdviserId||'',clientId:opts.clientId||'',action,reasoning:opts.reasoning||'',configVersion:TOOLNAME+'@'+VERSION,prevHash,docHash:'',payload};
-  entry.docHash=await sha256(JSON.stringify({i,ts:entry.ts,action,clientId:entry.clientId,prevHash,payload}));
-  state.audit.push(entry);await idbPut('audit',entry);
+ if(!state.settings.auditChain)return;if(!db)await openDB();
+ const prev=state.audit.length?state.audit[state.audit.length-1]:null;
+ const prevHash=prev?prev.docHash:'';const i=(prev?prev.i:0)+1;
+ const payload=opts.payload||{};
+ const entry={id:uid('au'),i,ts:now(),tool:TOOLNAME,adviserId:opts.adviserId||state.ui.activeAdviserId||'',clientId:opts.clientId||'',action,reasoning:opts.reasoning||'',configVersion:TOOLNAME+'@'+VERSION,prevHash,docHash:'',payload};
+ entry.docHash=await sha256(JSON.stringify({i,ts:entry.ts,action,clientId:entry.clientId,prevHash,payload}));
+ state.audit.push(entry);await idbPut('audit',entry);
 }
 
 // BroadcastChannel mesh
 let bcMortgage,bcClient,bcSignal;
 function broadcast(ch,type,payload){if(!state.settings.autoBroadcast||!ch)return;try{ch.postMessage({v:1,type,ts:now(),source:TOOLNAME,payload})}catch(e){}}
 function initMesh(){
-  try{bcSignal=new BroadcastChannel('fall-signal');bcSignal.postMessage({source:TOOLNAME,type:'hello',prime:PRIME,version:VERSION,ts:now()});bcSignal.addEventListener('message',e=>{const m=e.data;if(!m)return;if(m.type==='ping')bcSignal.postMessage({source:TOOLNAME,type:'pong',prime:PRIME})})}catch(e){}
-  try{bcMortgage=new BroadcastChannel('fall-mortgage');bcMortgage.addEventListener('message',handleMortgageMsg);bcMortgage.postMessage({v:1,type:'sync.request',ts:now(),source:TOOLNAME,payload:{wants:['clients','advisers','firm']}})}catch(e){}
-  try{bcClient=new BroadcastChannel('fall-client');bcClient.addEventListener('message',handleClientMsg)}catch(e){}
+ try{bcSignal=new BroadcastChannel('fall-signal');bcSignal.postMessage({source:TOOLNAME,type:'hello',prime:PRIME,version:VERSION,ts:now()});bcSignal.addEventListener('message',e=>{const m=e.data;if(!m)return;if(m.type==='ping')bcSignal.postMessage({source:TOOLNAME,type:'pong',prime:PRIME})})}catch(e){}
+ try{bcMortgage=new BroadcastChannel('fall-mortgage');bcMortgage.addEventListener('message',handleMortgageMsg);bcMortgage.postMessage({v:1,type:'sync.request',ts:now(),source:TOOLNAME,payload:{wants:['clients','advisers','firm']}})}catch(e){}
+ try{bcClient=new BroadcastChannel('fall-client');bcClient.addEventListener('message',handleClientMsg)}catch(e){}
 }
 async function handleMortgageMsg(e){
-  const m=e.data;if(!m||m.source===TOOLNAME)return;let dirty=false;
-  if(m.type==='sync.snapshot'){
-    const p=m.payload||{};
-    if(Array.isArray(p.clients))for(const c of p.clients){const idx=state.clients.findIndex(x=>x.id===c.id);if(idx>=0){if((c.updatedAt||0)>=(state.clients[idx].updatedAt||0)){state.clients[idx]=c;await idbPut('clients',c);dirty=true;}}else{state.clients.push(c);await idbPut('clients',c);dirty=true;}}
-    if(p.firm&&(!state.firm||(p.firm.updatedAt||0)>(state.firm.updatedAt||0))){state.firm=p.firm;await idbPut('firms',p.firm);dirty=true;}
-  }else if(m.type==='sync.request'){
-    broadcast(bcMortgage,'sync.snapshot',{clients:state.clients,advisers:state.advisers,firm:state.firm});
-  }
-  if(dirty)render();
+ const m=e.data;if(!m||m.source===TOOLNAME)return;let dirty=false;
+ if(m.type==='sync.snapshot'){
+ const p=m.payload||{};
+ if(Array.isArray(p.clients))for(const c of p.clients){const idx=state.clients.findIndex(x=>x.id===c.id);if(idx>=0){if((c.updatedAt||0)>=(state.clients[idx].updatedAt||0)){state.clients[idx]=c;await idbPut('clients',c);dirty=true;}}else{state.clients.push(c);await idbPut('clients',c);dirty=true;}}
+ if(p.firm&&(!state.firm||(p.firm.updatedAt||0)>(state.firm.updatedAt||0))){state.firm=p.firm;await idbPut('firms',p.firm);dirty=true;}
+ }else if(m.type==='sync.request'){
+ broadcast(bcMortgage,'sync.snapshot',{clients:state.clients,advisers:state.advisers,firm:state.firm});
+ }
+ if(dirty)render();
 }
 async function handleClientMsg(e){
-  const m=e.data;if(!m||m.source===TOOLNAME)return;
-  if(m.type==='client.created'||m.type==='client.updated'){
-    const c=m.payload;if(c&&c.id){const idx=state.clients.findIndex(x=>x.id===c.id);if(idx>=0)state.clients[idx]=c;else state.clients.push(c);await idbPut('clients',c);render();}
-  }
+ const m=e.data;if(!m||m.source===TOOLNAME)return;
+ if(m.type==='client.created'||m.type==='client.updated'){
+ const c=m.payload;if(c&&c.id){const idx=state.clients.findIndex(x=>x.id===c.id);if(idx>=0)state.clients[idx]=c;else state.clients.push(c);await idbPut('clients',c);render();}
+ }
 }
 
 // Client factory
 function newClientRec(){
-  return {
-    id:uid('cl'),firmId:state.firm?state.firm.id:'',ts:now(),updatedAt:now(),archivedAt:null,
-    applicationType:'sole',
-    applicant1:{title:'Mr',firstName:'',lastName:'',dob:'',nationality:'GB',niNumber:'',maritalStatus:'single'},
-    applicant2:{title:'',firstName:'',lastName:'',dob:'',nationality:'GB',niNumber:'',maritalStatus:''},
-    contact:{address:'',city:'',postcode:'',phone:'',email:'',yearsAtAddress:0,previousAddresses:[]},
-    property:{address:'',postcode:'',type:'',tenure:'freehold',value:0,source:'purchase'},
-    employment1:{type:'employed',employer:'',jobTitle:'',startDate:'',basicSalary:0,otherIncome:0,otherIncomeSource:'',selfEmployedYears:0},
-    employment2:{type:'',employer:'',jobTitle:'',startDate:'',basicSalary:0,otherIncome:0},
-    expenditure:{mortgage:0,rent:0,loans:0,creditCards:0,childcare:0,schoolFees:0,maintenance:0,travel:0,utilities:0,insurance:0,other:0,dependants:0,dependantAges:''},
-    credit:{adverse:false,ccjs:false,defaults:false,iva:false,bankruptcy:false,missedPayments:false,paydayLoans:false,notes:''},
-    demands:{mortgageType:'purchase',loanAmount:0,term:25,repayment:'capital-and-interest',priorityRate:false,priorityFlexibility:false,priorityCertainty:true,priorityPortability:false,additionalNeeds:''},
-    aml:{idVerified:false,addressVerified:false,sourceOfDeposit:'',depositAmount:0,giftLetter:false,giftorName:'',giftorRelationship:'',sanctionsChecked:false,sanctionsMatch:false,pepStatus:false,riskGrade:'low',riskReasons:[],cddComplete:false,notes:''},
-    vulnerable:{identified:false,category:'',details:'',adjustments:'',communicationPrefs:'',reviewDate:''},
-    documents:[],
-    lenderPackage:{complete:false,checklist:{}},
-    status:'new',
-    adviserId:'',isDemo:false,
-  };
+ return {
+ id:uid('cl'),firmId:state.firm?state.firm.id:'',ts:now(),updatedAt:now(),archivedAt:null,
+ applicationType:'sole',
+ applicant1:{title:'Mr',firstName:'',lastName:'',dob:'',nationality:'GB',niNumber:'',maritalStatus:'single'},
+ applicant2:{title:'',firstName:'',lastName:'',dob:'',nationality:'GB',niNumber:'',maritalStatus:''},
+ contact:{address:'',city:'',postcode:'',phone:'',email:'',yearsAtAddress:0,previousAddresses:[]},
+ property:{address:'',postcode:'',type:'',tenure:'freehold',value:0,source:'purchase'},
+ employment1:{type:'employed',employer:'',jobTitle:'',startDate:'',basicSalary:0,otherIncome:0,otherIncomeSource:'',selfEmployedYears:0},
+ employment2:{type:'',employer:'',jobTitle:'',startDate:'',basicSalary:0,otherIncome:0},
+ expenditure:{mortgage:0,rent:0,loans:0,creditCards:0,childcare:0,schoolFees:0,maintenance:0,travel:0,utilities:0,insurance:0,other:0,dependants:0,dependantAges:''},
+ credit:{adverse:false,ccjs:false,defaults:false,iva:false,bankruptcy:false,missedPayments:false,paydayLoans:false,notes:''},
+ demands:{mortgageType:'purchase',loanAmount:0,term:25,repayment:'capital-and-interest',priorityRate:false,priorityFlexibility:false,priorityCertainty:true,priorityPortability:false,additionalNeeds:''},
+ aml:{idVerified:false,addressVerified:false,sourceOfDeposit:'',depositAmount:0,giftLetter:false,giftorName:'',giftorRelationship:'',sanctionsChecked:false,sanctionsMatch:false,pepStatus:false,riskGrade:'low',riskReasons:[],cddComplete:false,notes:''},
+ vulnerable:{identified:false,category:'',details:'',adjustments:'',communicationPrefs:'',reviewDate:''},
+ documents:[],
+ lenderPackage:{complete:false,checklist:{}},
+ status:'new',
+ adviserId:'',isDemo:false,
+ };
 }
 
 function clientDisplayName(c){
-  const a1=c.applicant1||{};
-  const name=(a1.title?a1.title+' ':'')+(a1.firstName||'')+' '+(a1.lastName||'');
-  if(c.applicationType==='joint'){
-    const a2=c.applicant2||{};
-    const name2=(a2.firstName||'')+' '+(a2.lastName||'');
-    if(name2.trim())return name.trim()+' & '+name2.trim();
-  }
-  return name.trim()||'Unnamed';
+ const a1=c.applicant1||{};
+ const name=(a1.title?a1.title+' ':'')+(a1.firstName||'')+' '+(a1.lastName||'');
+ if(c.applicationType==='joint'){
+ const a2=c.applicant2||{};
+ const name2=(a2.firstName||'')+' '+(a2.lastName||'');
+ if(name2.trim())return name.trim()+' & '+name2.trim();
+ }
+ return name.trim()||'Unnamed';
 }
 
 // Risk scoring
 function assessAmlRisk(c){
-  const aml=c.aml||{};let score=0;const reasons=[];
-  if(aml.pepStatus){score+=3;reasons.push('PEP');}
-  if(aml.sanctionsMatch){score+=4;reasons.push('sanctions match');}
-  if(!aml.sanctionsChecked){score+=1;reasons.push('sanctions unchecked');}
-  const nat=(c.applicant1?.nationality||'').toUpperCase();
-  if(HIGH_RISK_JURIS.includes(nat)){score+=3;reasons.push('high-risk nationality');}
-  if(aml.sourceOfDeposit==='gift'&&!aml.giftLetter){score+=2;reasons.push('gift without letter');}
-  if(aml.sourceOfDeposit==='overseas'){score+=2;reasons.push('overseas source of deposit');}
-  if(aml.depositAmount>100000){score+=1;reasons.push('deposit >£100k');}
-  const grade=score>=5?'high':score>=2?'medium':'low';
-  return {grade,score,reasons};
+ const aml=c.aml||{};let score=0;const reasons=[];
+ if(aml.pepStatus){score+=3;reasons.push('PEP');}
+ if(aml.sanctionsMatch){score+=4;reasons.push('sanctions match');}
+ if(!aml.sanctionsChecked){score+=1;reasons.push('sanctions unchecked');}
+ const nat=(c.applicant1?.nationality||'').toUpperCase();
+ if(HIGH_RISK_JURIS.includes(nat)){score+=3;reasons.push('high-risk nationality');}
+ if(aml.sourceOfDeposit==='gift'&&!aml.giftLetter){score+=2;reasons.push('gift without letter');}
+ if(aml.sourceOfDeposit==='overseas'){score+=2;reasons.push('overseas source of deposit');}
+ if(aml.depositAmount>100000){score+=1;reasons.push('deposit >£100k');}
+ const grade=score>=5?'high':score>=2?'medium':'low';
+ return {grade,score,reasons};
 }
 
 // Save helpers
 async function saveClient(c,action,reasoning){
-  c.updatedAt=now();const risk=assessAmlRisk(c);c.aml.riskGrade=risk.grade;c.aml.riskReasons=risk.reasons;
-  const idx=state.clients.findIndex(x=>x.id===c.id);
-  if(idx>=0)state.clients[idx]=c;else state.clients.push(c);
-  await idbPut('clients',c);
-  await auditLog(action||'client.updated',{clientId:c.id,reasoning:reasoning||'',payload:{status:c.status}});
-  broadcast(bcMortgage,'client.updated',c);broadcast(bcClient,'client.updated',c);
+ c.updatedAt=now();const risk=assessAmlRisk(c);c.aml.riskGrade=risk.grade;c.aml.riskReasons=risk.reasons;
+ const idx=state.clients.findIndex(x=>x.id===c.id);
+ if(idx>=0)state.clients[idx]=c;else state.clients.push(c);
+ await idbPut('clients',c);
+ await auditLog(action||'client.updated',{clientId:c.id,reasoning:reasoning||'',payload:{status:c.status}});
+ broadcast(bcMortgage,'client.updated',c);broadcast(bcClient,'client.updated',c);
 }
 async function saveFirm(f,reasoning){
-  f.updatedAt=now();state.firm=f;await idbPut('firms',f);
-  await auditLog('firm.updated',{reasoning:reasoning||''});
-  broadcast(bcMortgage,'firm.updated',f);
+ f.updatedAt=now();state.firm=f;await idbPut('firms',f);
+ await auditLog('firm.updated',{reasoning:reasoning||''});
+ broadcast(bcMortgage,'firm.updated',f);
 }
 async function saveAdviser(a,reasoning){
-  a.updatedAt=now();const idx=state.advisers.findIndex(x=>x.id===a.id);
-  if(idx>=0)state.advisers[idx]=a;else state.advisers.push(a);
-  await idbPut('advisers',a);
-  await auditLog('adviser.updated',{reasoning:reasoning||'',payload:{adviserId:a.id}});
+ a.updatedAt=now();const idx=state.advisers.findIndex(x=>x.id===a.id);
+ if(idx>=0)state.advisers[idx]=a;else state.advisers.push(a);
+ await idbPut('advisers',a);
+ await auditLog('adviser.updated',{reasoning:reasoning||'',payload:{adviserId:a.id}});
 }
 async function storeDocument(file,clientId,docType){
-  const buf=await file.arrayBuffer();const hash=await sha256(new TextDecoder().decode(new Uint8Array(buf).slice(0,1024)));
-  const meta={id:uid('doc'),clientId,type:docType,name:file.name,size:file.size,sha256:hash.slice(0,16),uploadedAt:now(),expiresAt:null};
-  const dt=DOC_TYPES.find(d=>d.id===docType);
-  if(dt)meta.expiresAt=now()+dt.expiry*86400000;
-  const cl=state.clients.find(c=>c.id===clientId);
-  if(cl){cl.documents.push(meta);await saveClient(cl,'document.uploaded','uploaded '+docType);}
-  toast('Document captured');
+ const buf=await file.arrayBuffer();const hash=await sha256(new TextDecoder().decode(new Uint8Array(buf).slice(0,1024)));
+ const meta={id:uid('doc'),clientId,type:docType,name:file.name,size:file.size,sha256:hash.slice(0,16),uploadedAt:now(),expiresAt:null};
+ const dt=DOC_TYPES.find(d=>d.id===docType);
+ if(dt)meta.expiresAt=now()+dt.expiry*86400000;
+ const cl=state.clients.find(c=>c.id===clientId);
+ if(cl){cl.documents.push(meta);await saveClient(cl,'document.uploaded','uploaded '+docType);}
+ toast('Document captured');
 }
 
 // RENDER
 function render(){
-  renderTabs();const v=$('#view');
-  if(state.ui.wizard){renderWizard(v);return;}
-  switch(state.active){
-    case 'dashboard':return renderDashboard(v);
-    case 'clients':return state.ui.selectedClientId?renderClientDetail(v):renderClientList(v);
-    case 'firm':return renderFirm(v);
-    case 'advisers':return renderAdvisers(v);
-    case 'help':return renderHelp(v);
-    default:renderDashboard(v);
-  }
+ renderTabs();const v=$('#view');
+ if(state.ui.wizard){renderWizard(v);return;}
+ switch(state.active){
+ case 'dashboard':return renderDashboard(v);
+ case 'clients':return state.ui.selectedClientId?renderClientDetail(v):renderClientList(v);
+ case 'firm':return renderFirm(v);
+ case 'advisers':return renderAdvisers(v);
+ case 'help':return renderHelp(v);
+ default:renderDashboard(v);
+ }
 }
 function renderTabs(){
-  const nav=$('#nav');
-  nav.innerHTML=TABS.map(t=>{
-    let count='';
-    if(t.id==='clients')count=`<span class="tcount">${state.clients.filter(c=>!c.archivedAt).length}</span>`;
-    return `<button class="${state.active===t.id?'active':''}" onclick="switchTab('${t.id}')">${t.ico} ${t.name}${count}</button>`;
-  }).join('');
-  $('#brandName').textContent=state.brandName;
+ const nav=$('#nav');
+ nav.innerHTML=TABS.map(t=>{
+ let count='';
+ if(t.id==='clients')count=`<span class="tcount">${state.clients.filter(c=>!c.archivedAt).length}</span>`;
+ return `<button class="${state.active===t.id?'active':''}" onclick="switchTab('${t.id}')">${t.ico} ${t.name}${count}</button>`;
+ }).join('');
+ $('#brandName').textContent=state.brandName;
 }
 function switchTab(id){state.active=id;state.ui.selectedClientId=null;state.ui.wizard=null;persistUI();render();}
 
 // DASHBOARD
 function renderDashboard(v){
-  const cls=state.clients.filter(c=>!c.archivedAt);
-  const newC=cls.filter(c=>c.status==='new').length;
-  const inProg=cls.filter(c=>c.status==='in-progress').length;
-  const complete=cls.filter(c=>c.status==='complete').length;
-  const amlDue=cls.filter(c=>!c.aml?.cddComplete).length;
-  const vulnCount=cls.filter(c=>c.vulnerable?.identified).length;
-  const highRisk=cls.filter(c=>c.aml?.riskGrade==='high').length;
-  const docsExpiring=cls.reduce((n,c)=>{return n+(c.documents||[]).filter(d=>d.expiresAt&&d.expiresAt<now()+30*86400000).length;},0);
-  const recent=cls.slice().sort((a,b)=>(b.updatedAt||0)-(a.updatedAt||0)).slice(0,6);
-  v.innerHTML=`
-    <div class="disclaimer"><strong>◆ Regulatory notice:</strong> FallMortgageOnboard assists with MCOB-shaped client fact-finding, AML CDD, and vulnerable customer assessment. It does not replace the adviser's professional judgment. Retain records for 7 years per FCA SYSC. Sovereign — client data never leaves this device.</div>
-    <div class="section-h"><h2>Dashboard</h2><div class="sub">fallmortgageonboard · prime 863</div></div>
-    <div class="dash-kpis">
-      <div class="dash-kpi"><div class="n">${cls.length}</div><div class="l">Total clients</div></div>
-      <div class="dash-kpi ${newC?'warn':''}"><div class="n">${newC}</div><div class="l">New</div></div>
-      <div class="dash-kpi"><div class="n">${inProg}</div><div class="l">In progress</div></div>
-      <div class="dash-kpi ok"><div class="n">${complete}</div><div class="l">Complete</div></div>
-      <div class="dash-kpi ${amlDue?'due':''}"><div class="n">${amlDue}</div><div class="l">AML incomplete</div></div>
-      <div class="dash-kpi ${highRisk?'due':''}"><div class="n">${highRisk}</div><div class="l">High risk</div></div>
-      <div class="dash-kpi"><div class="n">${vulnCount}</div><div class="l">Vulnerable</div></div>
-      <div class="dash-kpi ${docsExpiring?'warn':''}"><div class="n">${docsExpiring}</div><div class="l">Docs expiring 30d</div></div>
-    </div>
-    <div class="section-h"><h2>Recent Clients</h2></div>
-    ${recent.length?recent.map(c=>`<div class="card" style="margin-bottom:8px;cursor:pointer" onclick="openClient('${c.id}')"><div style="display:flex;justify-content:space-between;align-items:center"><div><strong style="font-family:var(--serif)">${esc(clientDisplayName(c))}</strong> <span class="tag ${c.status==='complete'?'green':c.status==='in-progress'?'amber':'muted'}">${c.status}</span>${c.aml?.riskGrade==='high'?'<span class="tag red">HIGH RISK</span>':''}${c.vulnerable?.identified?'<span class="tag violet">VULN</span>':''}</div><div style="font-family:var(--mono);font-size:10px;color:var(--cream-muted)">${dateStr(c.updatedAt)}</div></div></div>`).join(''):'<div class="empty"><div class="big">No clients yet</div><div class="small">Click <strong>+ client</strong> to start onboarding</div></div>'}`;
+ const cls=state.clients.filter(c=>!c.archivedAt);
+ const newC=cls.filter(c=>c.status==='new').length;
+ const inProg=cls.filter(c=>c.status==='in-progress').length;
+ const complete=cls.filter(c=>c.status==='complete').length;
+ const amlDue=cls.filter(c=>!c.aml?.cddComplete).length;
+ const vulnCount=cls.filter(c=>c.vulnerable?.identified).length;
+ const highRisk=cls.filter(c=>c.aml?.riskGrade==='high').length;
+ const docsExpiring=cls.reduce((n,c)=>{return n+(c.documents||[]).filter(d=>d.expiresAt&&d.expiresAt<now()+30*86400000).length;},0);
+ const recent=cls.slice().sort((a,b)=>(b.updatedAt||0)-(a.updatedAt||0)).slice(0,6);
+ v.innerHTML=`
+ <div class="disclaimer"><strong>◆ Regulatory notice:</strong> FallMortgageOnboard assists with MCOB-shaped client fact-finding, AML CDD, and vulnerable customer assessment. It does not replace the adviser's professional judgment. Retain records for 7 years per FCA SYSC. Sovereign — client data never leaves this device.</div>
+ <div class="section-h"><h2>Dashboard</h2><div class="sub">fallmortgageonboard · prime 863</div></div>
+ <div class="dash-kpis">
+ <div class="dash-kpi"><div class="n">${cls.length}</div><div class="l">Total clients</div></div>
+ <div class="dash-kpi ${newC?'warn':''}"><div class="n">${newC}</div><div class="l">New</div></div>
+ <div class="dash-kpi"><div class="n">${inProg}</div><div class="l">In progress</div></div>
+ <div class="dash-kpi ok"><div class="n">${complete}</div><div class="l">Complete</div></div>
+ <div class="dash-kpi ${amlDue?'due':''}"><div class="n">${amlDue}</div><div class="l">AML incomplete</div></div>
+ <div class="dash-kpi ${highRisk?'due':''}"><div class="n">${highRisk}</div><div class="l">High risk</div></div>
+ <div class="dash-kpi"><div class="n">${vulnCount}</div><div class="l">Vulnerable</div></div>
+ <div class="dash-kpi ${docsExpiring?'warn':''}"><div class="n">${docsExpiring}</div><div class="l">Docs expiring 30d</div></div>
+ </div>
+ <div class="section-h"><h2>Recent Clients</h2></div>
+ ${recent.length?recent.map(c=>`<div class="card" style="margin-bottom:8px;cursor:pointer" onclick="openClient('${c.id}')"><div style="display:flex;justify-content:space-between;align-items:center"><div><strong style="font-family:var(--serif)">${esc(clientDisplayName(c))}</strong> <span class="tag ${c.status==='complete'?'green':c.status==='in-progress'?'amber':'muted'}">${c.status}</span>${c.aml?.riskGrade==='high'?'<span class="tag red">HIGH RISK</span>':''}${c.vulnerable?.identified?'<span class="tag violet">VULN</span>':''}</div><div style="font-family:var(--mono);font-size:10px;color:var(--cream-muted)">${dateStr(c.updatedAt)}</div></div></div>`).join(''):'<div class="empty"><div class="big">No clients yet</div><div class="small">Click <strong>+ client</strong> to start onboarding</div></div>'}`;
 }
 
 // CLIENT LIST
 function renderClientList(v){
-  const filter=state.ui.filter||'all';
-  let cls=state.clients.filter(c=>!c.archivedAt);
-  if(filter==='new')cls=cls.filter(c=>c.status==='new');
-  else if(filter==='in-progress')cls=cls.filter(c=>c.status==='in-progress');
-  else if(filter==='complete')cls=cls.filter(c=>c.status==='complete');
-  else if(filter==='aml-due')cls=cls.filter(c=>!c.aml?.cddComplete);
-  else if(filter==='high-risk')cls=cls.filter(c=>c.aml?.riskGrade==='high');
-  else if(filter==='vulnerable')cls=cls.filter(c=>c.vulnerable?.identified);
-  const q=(state.ui.search||'').toLowerCase();
-  if(q)cls=cls.filter(c=>clientDisplayName(c).toLowerCase().includes(q));
-  cls.sort((a,b)=>(b.updatedAt||0)-(a.updatedAt||0));
-  v.innerHTML=`
-    <div class="section-h"><h2>Clients</h2><div class="sub">${cls.length} shown</div></div>
-    <div class="chip-row">
-      ${['all','new','in-progress','complete','aml-due','high-risk','vulnerable'].map(f=>`<button class="chip ${filter===f?'active':''}" onclick="setFilter('${f}')">${f}</button>`).join('')}
-    </div>
-    <div class="field" style="max-width:400px;margin-bottom:14px"><input placeholder="Search…" value="${esc(state.ui.search||'')}" oninput="state.ui.search=this.value;render()"></div>
-    ${cls.length?`<table><thead><tr><th>Name</th><th>Type</th><th>Status</th><th>AML</th><th>Updated</th></tr></thead><tbody>${
-      cls.map(c=>`<tr class="row-link" onclick="openClient('${c.id}')"><td>${esc(clientDisplayName(c))}${c.isDemo?' <span class="tag muted">demo</span>':''}</td><td>${esc(c.applicationType)}</td><td><span class="tag ${c.status==='complete'?'green':c.status==='in-progress'?'amber':'muted'}">${c.status}</span></td><td><span class="tag ${c.aml?.riskGrade==='high'?'red':c.aml?.riskGrade==='medium'?'amber':'green'}">${c.aml?.riskGrade||'—'}</span>${c.aml?.cddComplete?'':' <span class="tag ox">CDD due</span>'}</td><td>${dateStr(c.updatedAt)}</td></tr>`).join('')
-    }</tbody></table>`:'<div class="empty"><div class="big">No matching clients</div></div>'}`;
+ const filter=state.ui.filter||'all';
+ let cls=state.clients.filter(c=>!c.archivedAt);
+ if(filter==='new')cls=cls.filter(c=>c.status==='new');
+ else if(filter==='in-progress')cls=cls.filter(c=>c.status==='in-progress');
+ else if(filter==='complete')cls=cls.filter(c=>c.status==='complete');
+ else if(filter==='aml-due')cls=cls.filter(c=>!c.aml?.cddComplete);
+ else if(filter==='high-risk')cls=cls.filter(c=>c.aml?.riskGrade==='high');
+ else if(filter==='vulnerable')cls=cls.filter(c=>c.vulnerable?.identified);
+ const q=(state.ui.search||'').toLowerCase();
+ if(q)cls=cls.filter(c=>clientDisplayName(c).toLowerCase().includes(q));
+ cls.sort((a,b)=>(b.updatedAt||0)-(a.updatedAt||0));
+ v.innerHTML=`
+ <div class="section-h"><h2>Clients</h2><div class="sub">${cls.length} shown</div></div>
+ <div class="chip-row">
+ ${['all','new','in-progress','complete','aml-due','high-risk','vulnerable'].map(f=>`<button class="chip ${filter===f?'active':''}" onclick="setFilter('${f}')">${f}</button>`).join('')}
+ </div>
+ <div class="field" style="max-width:400px;margin-bottom:14px"><input placeholder="Search…" value="${esc(state.ui.search||'')}" oninput="state.ui.search=this.value;render()"></div>
+ ${cls.length?`<table><thead><tr><th>Name</th><th>Type</th><th>Status</th><th>AML</th><th>Updated</th></tr></thead><tbody>${
+ cls.map(c=>`<tr class="row-link" onclick="openClient('${c.id}')"><td>${esc(clientDisplayName(c))}${c.isDemo?' <span class="tag muted">demo</span>':''}</td><td>${esc(c.applicationType)}</td><td><span class="tag ${c.status==='complete'?'green':c.status==='in-progress'?'amber':'muted'}">${c.status}</span></td><td><span class="tag ${c.aml?.riskGrade==='high'?'red':c.aml?.riskGrade==='medium'?'amber':'green'}">${c.aml?.riskGrade||'—'}</span>${c.aml?.cddComplete?'':' <span class="tag ox">CDD due</span>'}</td><td>${dateStr(c.updatedAt)}</td></tr>`).join('')
+ }</tbody></table>`:'<div class="empty"><div class="big">No matching clients</div></div>'}`;
 }
 function setFilter(f){state.ui.filter=f;render();}
 function openClient(id){state.ui.selectedClientId=id;state.active='clients';state.ui.clientSubtab='overview';render();}
 
 // CLIENT DETAIL
 function renderClientDetail(v){
-  const c=state.clients.find(x=>x.id===state.ui.selectedClientId);
-  if(!c){state.ui.selectedClientId=null;renderClientList(v);return;}
-  const a1=c.applicant1||{};const sub=state.ui.clientSubtab||'overview';
-  const risk=assessAmlRisk(c);
-  v.innerHTML=`
-    <div style="margin-bottom:14px"><button class="btn ghost sm" onclick="state.ui.selectedClientId=null;render()">← Back</button></div>
-    <div class="section-h"><h2>${esc(clientDisplayName(c))}</h2><div class="actions">
-      <button class="btn primary sm" onclick="resumeWizard('${c.id}')">Edit wizard</button>
-      <button class="btn ghost sm" onclick="archiveClient('${c.id}')">Archive</button>
-    </div></div>
-    <div class="subtab-row">
-      ${['overview','employment','expenditure','demands','aml','vulnerable','documents'].map(t=>`<div class="subtab ${sub===t?'active':''}" onclick="state.ui.clientSubtab='${t}';render()">${t}</div>`).join('')}
-    </div>
-    ${sub==='overview'?renderClientOverview(c,risk):''}
-    ${sub==='employment'?renderClientEmployment(c):''}
-    ${sub==='expenditure'?renderClientExpenditure(c):''}
-    ${sub==='demands'?renderClientDemands(c):''}
-    ${sub==='aml'?renderClientAml(c,risk):''}
-    ${sub==='vulnerable'?renderClientVulnerable(c):''}
-    ${sub==='documents'?renderClientDocuments(c):''}`;
+ const c=state.clients.find(x=>x.id===state.ui.selectedClientId);
+ if(!c){state.ui.selectedClientId=null;renderClientList(v);return;}
+ const a1=c.applicant1||{};const sub=state.ui.clientSubtab||'overview';
+ const risk=assessAmlRisk(c);
+ v.innerHTML=`
+ <div style="margin-bottom:14px"><button class="btn ghost sm" onclick="state.ui.selectedClientId=null;render()">← Back</button></div>
+ <div class="section-h"><h2>${esc(clientDisplayName(c))}</h2><div class="actions">
+ <button class="btn primary sm" onclick="resumeWizard('${c.id}')">Edit wizard</button>
+ <button class="btn ghost sm" onclick="archiveClient('${c.id}')">Archive</button>
+ </div></div>
+ <div class="subtab-row">
+ ${['overview','employment','expenditure','demands','aml','vulnerable','documents'].map(t=>`<div class="subtab ${sub===t?'active':''}" onclick="state.ui.clientSubtab='${t}';render()">${t}</div>`).join('')}
+ </div>
+ ${sub==='overview'?renderClientOverview(c,risk):''}
+ ${sub==='employment'?renderClientEmployment(c):''}
+ ${sub==='expenditure'?renderClientExpenditure(c):''}
+ ${sub==='demands'?renderClientDemands(c):''}
+ ${sub==='aml'?renderClientAml(c,risk):''}
+ ${sub==='vulnerable'?renderClientVulnerable(c):''}
+ ${sub==='documents'?renderClientDocuments(c):''}`;
 }
 function renderClientOverview(c,risk){
-  const a1=c.applicant1||{};const a2=c.applicant2||{};
-  return `<div class="grid-2">
-    <div class="card"><h3>Applicant 1</h3>
-      <div class="kpi"><span class="l">Name</span><span class="v">${esc(a1.title)} ${esc(a1.firstName)} ${esc(a1.lastName)}</span></div>
-      <div class="kpi"><span class="l">DOB</span><span class="v">${esc(a1.dob)}</span></div>
-      <div class="kpi"><span class="l">Nationality</span><span class="v">${esc(a1.nationality)}</span></div>
-      <div class="kpi"><span class="l">NI</span><span class="v">${esc(a1.niNumber)}</span></div>
-      <div class="kpi"><span class="l">Marital</span><span class="v">${esc(a1.maritalStatus)}</span></div>
-    </div>
-    ${c.applicationType==='joint'?`<div class="card"><h3>Applicant 2</h3>
-      <div class="kpi"><span class="l">Name</span><span class="v">${esc(a2.title)} ${esc(a2.firstName)} ${esc(a2.lastName)}</span></div>
-      <div class="kpi"><span class="l">DOB</span><span class="v">${esc(a2.dob)}</span></div>
-      <div class="kpi"><span class="l">NI</span><span class="v">${esc(a2.niNumber)}</span></div>
-    </div>`:'<div class="card"><h3>Application Type</h3><div class="kpi"><span class="l">Type</span><span class="v">${esc(c.applicationType)}</span></div></div>'}
-    <div class="card"><h3>Contact</h3>
-      <div class="kpi"><span class="l">Address</span><span class="v">${esc(c.contact?.address)}</span></div>
-      <div class="kpi"><span class="l">Postcode</span><span class="v">${esc(c.contact?.postcode)}</span></div>
-      <div class="kpi"><span class="l">Phone</span><span class="v">${esc(c.contact?.phone)}</span></div>
-      <div class="kpi"><span class="l">Email</span><span class="v">${esc(c.contact?.email)}</span></div>
-    </div>
-    <div class="card"><h3>Status</h3>
-      <div class="kpi"><span class="l">Status</span><span class="v">${esc(c.status)}</span></div>
-      <div class="kpi"><span class="l">AML risk</span><span class="v ${risk.grade==='high'?'red':risk.grade==='medium'?'amber':'green'}">${risk.grade}</span></div>
-      <div class="kpi"><span class="l">CDD complete</span><span class="v ${c.aml?.cddComplete?'green':'red'}">${c.aml?.cddComplete?'Yes':'No'}</span></div>
-      <div class="kpi"><span class="l">Vulnerable</span><span class="v">${c.vulnerable?.identified?'Yes':'No'}</span></div>
-      <div class="kpi"><span class="l">Documents</span><span class="v">${(c.documents||[]).length}</span></div>
-    </div>
-  </div>`;
+ const a1=c.applicant1||{};const a2=c.applicant2||{};
+ return `<div class="grid-2">
+ <div class="card"><h3>Applicant 1</h3>
+ <div class="kpi"><span class="l">Name</span><span class="v">${esc(a1.title)} ${esc(a1.firstName)} ${esc(a1.lastName)}</span></div>
+ <div class="kpi"><span class="l">DOB</span><span class="v">${esc(a1.dob)}</span></div>
+ <div class="kpi"><span class="l">Nationality</span><span class="v">${esc(a1.nationality)}</span></div>
+ <div class="kpi"><span class="l">NI</span><span class="v">${esc(a1.niNumber)}</span></div>
+ <div class="kpi"><span class="l">Marital</span><span class="v">${esc(a1.maritalStatus)}</span></div>
+ </div>
+ ${c.applicationType==='joint'?`<div class="card"><h3>Applicant 2</h3>
+ <div class="kpi"><span class="l">Name</span><span class="v">${esc(a2.title)} ${esc(a2.firstName)} ${esc(a2.lastName)}</span></div>
+ <div class="kpi"><span class="l">DOB</span><span class="v">${esc(a2.dob)}</span></div>
+ <div class="kpi"><span class="l">NI</span><span class="v">${esc(a2.niNumber)}</span></div>
+ </div>`:'<div class="card"><h3>Application Type</h3><div class="kpi"><span class="l">Type</span><span class="v">${esc(c.applicationType)}</span></div></div>'}
+ <div class="card"><h3>Contact</h3>
+ <div class="kpi"><span class="l">Address</span><span class="v">${esc(c.contact?.address)}</span></div>
+ <div class="kpi"><span class="l">Postcode</span><span class="v">${esc(c.contact?.postcode)}</span></div>
+ <div class="kpi"><span class="l">Phone</span><span class="v">${esc(c.contact?.phone)}</span></div>
+ <div class="kpi"><span class="l">Email</span><span class="v">${esc(c.contact?.email)}</span></div>
+ </div>
+ <div class="card"><h3>Status</h3>
+ <div class="kpi"><span class="l">Status</span><span class="v">${esc(c.status)}</span></div>
+ <div class="kpi"><span class="l">AML risk</span><span class="v ${risk.grade==='high'?'red':risk.grade==='medium'?'amber':'green'}">${risk.grade}</span></div>
+ <div class="kpi"><span class="l">CDD complete</span><span class="v ${c.aml?.cddComplete?'green':'red'}">${c.aml?.cddComplete?'Yes':'No'}</span></div>
+ <div class="kpi"><span class="l">Vulnerable</span><span class="v">${c.vulnerable?.identified?'Yes':'No'}</span></div>
+ <div class="kpi"><span class="l">Documents</span><span class="v">${(c.documents||[]).length}</span></div>
+ </div>
+ </div>`;
 }
 function renderClientEmployment(c){
-  const e1=c.employment1||{};const e2=c.employment2||{};
-  return `<div class="card"><h3>Employment — Applicant 1</h3>
-    <div class="kpi"><span class="l">Type</span><span class="v">${esc(e1.type)}</span></div>
-    <div class="kpi"><span class="l">Employer</span><span class="v">${esc(e1.employer)}</span></div>
-    <div class="kpi"><span class="l">Job title</span><span class="v">${esc(e1.jobTitle)}</span></div>
-    <div class="kpi"><span class="l">Basic salary</span><span class="v">${moneyP(e1.basicSalary)}</span></div>
-    <div class="kpi"><span class="l">Other income</span><span class="v">${moneyP(e1.otherIncome)} ${esc(e1.otherIncomeSource)}</span></div>
-  </div>
-  ${c.applicationType==='joint'?`<div class="card" style="margin-top:14px"><h3>Employment — Applicant 2</h3>
-    <div class="kpi"><span class="l">Type</span><span class="v">${esc(e2.type)}</span></div>
-    <div class="kpi"><span class="l">Employer</span><span class="v">${esc(e2.employer)}</span></div>
-    <div class="kpi"><span class="l">Basic salary</span><span class="v">${moneyP(e2.basicSalary)}</span></div>
-  </div>`:''}`;
+ const e1=c.employment1||{};const e2=c.employment2||{};
+ return `<div class="card"><h3>Employment — Applicant 1</h3>
+ <div class="kpi"><span class="l">Type</span><span class="v">${esc(e1.type)}</span></div>
+ <div class="kpi"><span class="l">Employer</span><span class="v">${esc(e1.employer)}</span></div>
+ <div class="kpi"><span class="l">Job title</span><span class="v">${esc(e1.jobTitle)}</span></div>
+ <div class="kpi"><span class="l">Basic salary</span><span class="v">${moneyP(e1.basicSalary)}</span></div>
+ <div class="kpi"><span class="l">Other income</span><span class="v">${moneyP(e1.otherIncome)} ${esc(e1.otherIncomeSource)}</span></div>
+ </div>
+ ${c.applicationType==='joint'?`<div class="card" style="margin-top:14px"><h3>Employment — Applicant 2</h3>
+ <div class="kpi"><span class="l">Type</span><span class="v">${esc(e2.type)}</span></div>
+ <div class="kpi"><span class="l">Employer</span><span class="v">${esc(e2.employer)}</span></div>
+ <div class="kpi"><span class="l">Basic salary</span><span class="v">${moneyP(e2.basicSalary)}</span></div>
+ </div>`:''}`;
 }
 function renderClientExpenditure(c){
-  const ex=c.expenditure||{};
-  const total=Object.entries(ex).filter(([k])=>!['dependants','dependantAges'].includes(k)).reduce((s,[,v])=>s+(+v||0),0);
-  return `<div class="card"><h3>Monthly Expenditure</h3>
-    ${['mortgage','rent','loans','creditCards','childcare','schoolFees','maintenance','travel','utilities','insurance','other'].map(k=>`<div class="kpi"><span class="l">${k}</span><span class="v">${moneyP(ex[k])}</span></div>`).join('')}
-    <div class="kpi" style="border-top:2px solid var(--brass);margin-top:6px;padding-top:8px"><span class="l"><strong>Total</strong></span><span class="v brass"><strong>${moneyP(total)}</strong></span></div>
-    <div class="kpi"><span class="l">Dependants</span><span class="v">${ex.dependants||0} (ages: ${esc(ex.dependantAges)})</span></div>
-  </div>`;
+ const ex=c.expenditure||{};
+ const total=Object.entries(ex).filter(([k])=>!['dependants','dependantAges'].includes(k)).reduce((s,[,v])=>s+(+v||0),0);
+ return `<div class="card"><h3>Monthly Expenditure</h3>
+ ${['mortgage','rent','loans','creditCards','childcare','schoolFees','maintenance','travel','utilities','insurance','other'].map(k=>`<div class="kpi"><span class="l">${k}</span><span class="v">${moneyP(ex[k])}</span></div>`).join('')}
+ <div class="kpi" style="border-top:2px solid var(--brass);margin-top:6px;padding-top:8px"><span class="l"><strong>Total</strong></span><span class="v brass"><strong>${moneyP(total)}</strong></span></div>
+ <div class="kpi"><span class="l">Dependants</span><span class="v">${ex.dependants||0} (ages: ${esc(ex.dependantAges)})</span></div>
+ </div>`;
 }
 function renderClientDemands(c){
-  const d=c.demands||{};
-  return `<div class="card"><h3>Demands & Needs (MCOB 4.7A)</h3>
-    <div class="kpi"><span class="l">Mortgage type</span><span class="v">${esc(d.mortgageType)}</span></div>
-    <div class="kpi"><span class="l">Loan amount</span><span class="v">${moneyP(d.loanAmount)}</span></div>
-    <div class="kpi"><span class="l">Term</span><span class="v">${d.term} years</span></div>
-    <div class="kpi"><span class="l">Repayment</span><span class="v">${esc(d.repayment)}</span></div>
-    <div class="kpi"><span class="l">Priority: rate</span><span class="v">${d.priorityRate?'Yes':'No'}</span></div>
-    <div class="kpi"><span class="l">Priority: certainty</span><span class="v">${d.priorityCertainty?'Yes':'No'}</span></div>
-    <div class="kpi"><span class="l">Priority: flexibility</span><span class="v">${d.priorityFlexibility?'Yes':'No'}</span></div>
-    <div class="kpi"><span class="l">Priority: portability</span><span class="v">${d.priorityPortability?'Yes':'No'}</span></div>
-    <div class="kpi"><span class="l">Additional needs</span><span class="v">${esc(d.additionalNeeds)}</span></div>
-  </div>`;
+ const d=c.demands||{};
+ return `<div class="card"><h3>Demands & Needs (MCOB 4.7A)</h3>
+ <div class="kpi"><span class="l">Mortgage type</span><span class="v">${esc(d.mortgageType)}</span></div>
+ <div class="kpi"><span class="l">Loan amount</span><span class="v">${moneyP(d.loanAmount)}</span></div>
+ <div class="kpi"><span class="l">Term</span><span class="v">${d.term} years</span></div>
+ <div class="kpi"><span class="l">Repayment</span><span class="v">${esc(d.repayment)}</span></div>
+ <div class="kpi"><span class="l">Priority: rate</span><span class="v">${d.priorityRate?'Yes':'No'}</span></div>
+ <div class="kpi"><span class="l">Priority: certainty</span><span class="v">${d.priorityCertainty?'Yes':'No'}</span></div>
+ <div class="kpi"><span class="l">Priority: flexibility</span><span class="v">${d.priorityFlexibility?'Yes':'No'}</span></div>
+ <div class="kpi"><span class="l">Priority: portability</span><span class="v">${d.priorityPortability?'Yes':'No'}</span></div>
+ <div class="kpi"><span class="l">Additional needs</span><span class="v">${esc(d.additionalNeeds)}</span></div>
+ </div>`;
 }
 function renderClientAml(c,risk){
-  const a=c.aml||{};
-  return `<div class="card"><h3>AML CDD</h3>
-    <div class="kpi"><span class="l">ID verified</span><span class="v ${a.idVerified?'green':'red'}">${a.idVerified?'Yes':'No'}</span></div>
-    <div class="kpi"><span class="l">Address verified</span><span class="v ${a.addressVerified?'green':'red'}">${a.addressVerified?'Yes':'No'}</span></div>
-    <div class="kpi"><span class="l">Source of deposit</span><span class="v">${esc(a.sourceOfDeposit)}</span></div>
-    <div class="kpi"><span class="l">Deposit amount</span><span class="v">${moneyP(a.depositAmount)}</span></div>
-    ${a.sourceOfDeposit==='gift'?`<div class="kpi"><span class="l">Gift letter</span><span class="v ${a.giftLetter?'green':'red'}">${a.giftLetter?'Yes':'No'}</span></div><div class="kpi"><span class="l">Giftor</span><span class="v">${esc(a.giftorName)} (${esc(a.giftorRelationship)})</span></div>`:''}
-    <div class="kpi"><span class="l">Sanctions checked</span><span class="v ${a.sanctionsChecked?'green':'red'}">${a.sanctionsChecked?'Yes':'No'}</span></div>
-    <div class="kpi"><span class="l">Sanctions match</span><span class="v ${a.sanctionsMatch?'red':'green'}">${a.sanctionsMatch?'MATCH':'Clear'}</span></div>
-    <div class="kpi"><span class="l">PEP</span><span class="v ${a.pepStatus?'red':''}">${a.pepStatus?'Yes':'No'}</span></div>
-    <div class="kpi"><span class="l">Risk grade</span><span class="v ${risk.grade==='high'?'red':risk.grade==='medium'?'amber':'green'}">${risk.grade} (score ${risk.score})</span></div>
-    ${risk.reasons.length?`<div style="margin-top:6px">${risk.reasons.map(r=>`<span class="tag ${r.includes('sanctions')||r.includes('PEP')?'red':'amber'}" style="margin-bottom:4px">${esc(r)}</span>`).join(' ')}</div>`:''}
-    <div class="kpi"><span class="l">CDD complete</span><span class="v ${a.cddComplete?'green':'red'}">${a.cddComplete?'Yes':'No'}</span></div>
-  </div>`;
+ const a=c.aml||{};
+ return `<div class="card"><h3>AML CDD</h3>
+ <div class="kpi"><span class="l">ID verified</span><span class="v ${a.idVerified?'green':'red'}">${a.idVerified?'Yes':'No'}</span></div>
+ <div class="kpi"><span class="l">Address verified</span><span class="v ${a.addressVerified?'green':'red'}">${a.addressVerified?'Yes':'No'}</span></div>
+ <div class="kpi"><span class="l">Source of deposit</span><span class="v">${esc(a.sourceOfDeposit)}</span></div>
+ <div class="kpi"><span class="l">Deposit amount</span><span class="v">${moneyP(a.depositAmount)}</span></div>
+ ${a.sourceOfDeposit==='gift'?`<div class="kpi"><span class="l">Gift letter</span><span class="v ${a.giftLetter?'green':'red'}">${a.giftLetter?'Yes':'No'}</span></div><div class="kpi"><span class="l">Giftor</span><span class="v">${esc(a.giftorName)} (${esc(a.giftorRelationship)})</span></div>`:''}
+ <div class="kpi"><span class="l">Sanctions checked</span><span class="v ${a.sanctionsChecked?'green':'red'}">${a.sanctionsChecked?'Yes':'No'}</span></div>
+ <div class="kpi"><span class="l">Sanctions match</span><span class="v ${a.sanctionsMatch?'red':'green'}">${a.sanctionsMatch?'MATCH':'Clear'}</span></div>
+ <div class="kpi"><span class="l">PEP</span><span class="v ${a.pepStatus?'red':''}">${a.pepStatus?'Yes':'No'}</span></div>
+ <div class="kpi"><span class="l">Risk grade</span><span class="v ${risk.grade==='high'?'red':risk.grade==='medium'?'amber':'green'}">${risk.grade} (score ${risk.score})</span></div>
+ ${risk.reasons.length?`<div style="margin-top:6px">${risk.reasons.map(r=>`<span class="tag ${r.includes('sanctions')||r.includes('PEP')?'red':'amber'}" style="margin-bottom:4px">${esc(r)}</span>`).join(' ')}</div>`:''}
+ <div class="kpi"><span class="l">CDD complete</span><span class="v ${a.cddComplete?'green':'red'}">${a.cddComplete?'Yes':'No'}</span></div>
+ </div>`;
 }
 function renderClientVulnerable(c){
-  const vu=c.vulnerable||{};
-  return `<div class="card"><h3>Vulnerable Customer (FG21/1)</h3>
-    <div class="kpi"><span class="l">Identified</span><span class="v ${vu.identified?'amber':''}">${vu.identified?'Yes':'No'}</span></div>
-    ${vu.identified?`
-    <div class="kpi"><span class="l">Category</span><span class="v">${esc(vu.category)}</span></div>
-    <div class="kpi"><span class="l">Details</span><span class="v">${esc(vu.details)}</span></div>
-    <div class="kpi"><span class="l">Adjustments</span><span class="v">${esc(vu.adjustments)}</span></div>
-    <div class="kpi"><span class="l">Comms prefs</span><span class="v">${esc(vu.communicationPrefs)}</span></div>
-    <div class="kpi"><span class="l">Review date</span><span class="v">${esc(vu.reviewDate)}</span></div>`:''}
-  </div>`;
+ const vu=c.vulnerable||{};
+ return `<div class="card"><h3>Vulnerable Customer (FG21/1)</h3>
+ <div class="kpi"><span class="l">Identified</span><span class="v ${vu.identified?'amber':''}">${vu.identified?'Yes':'No'}</span></div>
+ ${vu.identified?`
+ <div class="kpi"><span class="l">Category</span><span class="v">${esc(vu.category)}</span></div>
+ <div class="kpi"><span class="l">Details</span><span class="v">${esc(vu.details)}</span></div>
+ <div class="kpi"><span class="l">Adjustments</span><span class="v">${esc(vu.adjustments)}</span></div>
+ <div class="kpi"><span class="l">Comms prefs</span><span class="v">${esc(vu.communicationPrefs)}</span></div>
+ <div class="kpi"><span class="l">Review date</span><span class="v">${esc(vu.reviewDate)}</span></div>`:''}
+ </div>`;
 }
 function renderClientDocuments(c){
-  const docs=c.documents||[];
-  return `<div class="card"><h3>Documents <span class="meta">${docs.length}</span></h3>
-    ${docs.length?`<div class="doc-list">${docs.map(d=>{
-      const expired=d.expiresAt&&d.expiresAt<now();const expiring=d.expiresAt&&d.expiresAt<now()+30*86400000&&!expired;
-      return `<div class="doc-row"><span class="dtype">${esc(d.type)}</span><span class="dname">${esc(d.name)}</span><span class="dmeta">${expired?'<span class="tag red">expired</span>':expiring?'<span class="tag amber">expiring</span>':dateStr(d.expiresAt)}</span><span class="dhash">${esc(d.sha256)}</span></div>`;
-    }).join('')}</div>`:'<p style="color:var(--cream-dim);font-size:12px">No documents uploaded yet. Use the wizard to capture documents.</p>'}
-  </div>`;
+ const docs=c.documents||[];
+ return `<div class="card"><h3>Documents <span class="meta">${docs.length}</span></h3>
+ ${docs.length?`<div class="doc-list">${docs.map(d=>{
+ const expired=d.expiresAt&&d.expiresAt<now();const expiring=d.expiresAt&&d.expiresAt<now()+30*86400000&&!expired;
+ return `<div class="doc-row"><span class="dtype">${esc(d.type)}</span><span class="dname">${esc(d.name)}</span><span class="dmeta">${expired?'<span class="tag red">expired</span>':expiring?'<span class="tag amber">expiring</span>':dateStr(d.expiresAt)}</span><span class="dhash">${esc(d.sha256)}</span></div>`;
+ }).join('')}</div>`:'<p style="color:var(--cream-dim);font-size:12px">No documents uploaded yet. Use the wizard to capture documents.</p>'}
+ </div>`;
 }
 
 async function archiveClient(id){
-  if(!confirm('Archive this client?'))return;
-  const c=state.clients.find(x=>x.id===id);if(!c)return;
-  c.archivedAt=now();await saveClient(c,'client.archived','user archived');
-  state.ui.selectedClientId=null;toast('Archived');render();
+ if(!confirm('Archive this client?'))return;
+ const c=state.clients.find(x=>x.id===id);if(!c)return;
+ c.archivedAt=now();await saveClient(c,'client.archived','user archived');
+ state.ui.selectedClientId=null;toast('Archived');render();
 }
 
 // WIZARD
 function newClient(){
-  const c=newClientRec();c.adviserId=state.ui.activeAdviserId||'';
-  state.ui.wizard={clientId:c.id,step:0,client:c,fresh:true};
-  render();
+ const c=newClientRec();c.adviserId=state.ui.activeAdviserId||'';
+ state.ui.wizard={clientId:c.id,step:0,client:c,fresh:true};
+ render();
 }
 function resumeWizard(id){
-  const c=state.clients.find(x=>x.id===id);if(!c)return;
-  state.ui.wizard={clientId:c.id,step:0,client:JSON.parse(JSON.stringify(c)),fresh:false};
-  render();
+ const c=state.clients.find(x=>x.id===id);if(!c)return;
+ state.ui.wizard={clientId:c.id,step:0,client:JSON.parse(JSON.stringify(c)),fresh:false};
+ render();
 }
 
 function renderWizard(v){
-  const w=state.ui.wizard;if(!w)return;
-  const c=w.client;const step=w.step;
-  const steps=c.applicationType==='sole'?WIZARD_STEPS.filter(s=>s.id!=='applicant2'):WIZARD_STEPS;
-  const cur=steps[step]||steps[0];
-  v.innerHTML=`
-    <div class="wizard">
-      <div class="wizard-steps">${steps.map((s,i)=>`<div class="wstep ${i<step?'done':''} ${i===step?'active':''}" onclick="jumpStep(${i})"><span class="n">${s.n}</span>${s.name}</div>`).join('')}</div>
-      <div class="wizard-body" id="wizBody"></div>
-      <div class="wizard-foot">
-        <button class="btn ghost" onclick="${step>0?'prevStep()':'cancelWizard()'}">${step>0?'← Back':'Cancel'}</button>
-        <button class="btn primary" onclick="${step<steps.length-1?'nextStep()':'commitWizard()'}">${step<steps.length-1?'Next →':'Commit'}</button>
-      </div>
-    </div>`;
-  renderWizardStep(cur.id,c);
+ const w=state.ui.wizard;if(!w)return;
+ const c=w.client;const step=w.step;
+ const steps=c.applicationType==='sole'?WIZARD_STEPS.filter(s=>s.id!=='applicant2'):WIZARD_STEPS;
+ const cur=steps[step]||steps[0];
+ v.innerHTML=`
+ <div class="wizard">
+ <div class="wizard-steps">${steps.map((s,i)=>`<div class="wstep ${i<step?'done':''} ${i===step?'active':''}" onclick="jumpStep(${i})"><span class="n">${s.n}</span>${s.name}</div>`).join('')}</div>
+ <div class="wizard-body" id="wizBody"></div>
+ <div class="wizard-foot">
+ <button class="btn ghost" onclick="${step>0?'prevStep()':'cancelWizard()'}">${step>0?'← Back':'Cancel'}</button>
+ <button class="btn primary" onclick="${step<steps.length-1?'nextStep()':'commitWizard()'}">${step<steps.length-1?'Next →':'Commit'}</button>
+ </div>
+ </div>`;
+ renderWizardStep(cur.id,c);
 }
 
 function renderWizardStep(stepId,c){
-  const b=$('#wizBody');if(!b)return;
-  switch(stepId){
-    case 'type':
-      b.innerHTML=`<h3>Application Type</h3><div class="step-sub">Sole or joint application?</div>
-        <div class="row"><div class="field"><label>Type</label><select id="wType"><option value="sole" ${c.applicationType==='sole'?'selected':''}>Sole</option><option value="joint" ${c.applicationType==='joint'?'selected':''}>Joint</option></select></div></div>`;break;
-    case 'applicant1':
-      const a1=c.applicant1;
-      b.innerHTML=`<h3>Applicant 1</h3><div class="step-sub">Personal details of the primary applicant</div>
-        <div class="row"><div class="field"><label>Title</label><select id="wA1Title">${['Mr','Mrs','Ms','Miss','Dr','Prof'].map(t=>`<option ${a1.title===t?'selected':''}>${t}</option>`).join('')}</select></div><div class="field"><label>First name<span class="req">*</span></label><input id="wA1First" value="${esc(a1.firstName)}"></div></div>
-        <div class="row"><div class="field"><label>Last name<span class="req">*</span></label><input id="wA1Last" value="${esc(a1.lastName)}"></div><div class="field"><label>Date of birth</label><input type="date" id="wA1Dob" value="${esc(a1.dob)}"></div></div>
-        <div class="row"><div class="field"><label>Nationality</label><input id="wA1Nat" value="${esc(a1.nationality)}"></div><div class="field"><label>NI number</label><input id="wA1Ni" value="${esc(a1.niNumber)}" placeholder="QQ 12 34 56 A"></div></div>
-        <div class="field"><label>Marital status</label><select id="wA1Marital">${['single','married','civil-partnership','divorced','widowed','separated','cohabiting'].map(s=>`<option value="${s}" ${a1.maritalStatus===s?'selected':''}>${s}</option>`).join('')}</select></div>`;break;
-    case 'applicant2':
-      const a2=c.applicant2;
-      b.innerHTML=`<h3>Applicant 2</h3><div class="step-sub">Joint applicant details</div>
-        <div class="row"><div class="field"><label>Title</label><select id="wA2Title">${['Mr','Mrs','Ms','Miss','Dr'].map(t=>`<option ${a2.title===t?'selected':''}>${t}</option>`).join('')}</select></div><div class="field"><label>First name</label><input id="wA2First" value="${esc(a2.firstName)}"></div></div>
-        <div class="row"><div class="field"><label>Last name</label><input id="wA2Last" value="${esc(a2.lastName)}"></div><div class="field"><label>Date of birth</label><input type="date" id="wA2Dob" value="${esc(a2.dob)}"></div></div>
-        <div class="row"><div class="field"><label>NI number</label><input id="wA2Ni" value="${esc(a2.niNumber)}"></div><div class="field"><label>Marital status</label><select id="wA2Marital">${['single','married','civil-partnership','divorced','widowed','separated','cohabiting'].map(s=>`<option value="${s}" ${a2.maritalStatus===s?'selected':''}>${s}</option>`).join('')}</select></div></div>`;break;
-    case 'contact':
-      const co=c.contact;
-      b.innerHTML=`<h3>Contact & Property</h3><div class="step-sub">Current address and contact details</div>
-        <div class="field"><label>Address</label><input id="wAddr" value="${esc(co.address)}"></div>
-        <div class="row"><div class="field"><label>City</label><input id="wCity" value="${esc(co.city)}"></div><div class="field"><label>Postcode</label><input id="wPost" value="${esc(co.postcode)}"></div></div>
-        <div class="row"><div class="field"><label>Phone</label><input id="wPhone" value="${esc(co.phone)}"></div><div class="field"><label>Email</label><input type="email" id="wEmail" value="${esc(co.email)}"></div></div>
-        <div class="field"><label>Years at address</label><input type="number" id="wYears" value="${co.yearsAtAddress||0}"></div>
-        <h4>Subject property</h4>
-        <div class="field"><label>Property address</label><input id="wPropAddr" value="${esc(c.property?.address||'')}"></div>
-        <div class="row"><div class="field"><label>Postcode</label><input id="wPropPost" value="${esc(c.property?.postcode||'')}"></div><div class="field"><label>Estimated value</label><input type="number" id="wPropVal" value="${c.property?.value||0}"></div></div>
-        <div class="row"><div class="field"><label>Property type</label><select id="wPropType"><option value="">—</option>${['detached','semi-detached','terraced','flat','bungalow','maisonette','new-build','conversion','other'].map(t=>`<option value="${t}" ${c.property?.type===t?'selected':''}>${t}</option>`).join('')}</select></div><div class="field"><label>Tenure</label><select id="wTenure">${['freehold','leasehold','commonhold'].map(t=>`<option value="${t}" ${c.property?.tenure===t?'selected':''}>${t}</option>`).join('')}</select></div></div>`;break;
-    case 'employment':
-      const e1=c.employment1;
-      b.innerHTML=`<h3>Employment & Income</h3><div class="step-sub">Applicant 1 employment details</div>
-        <div class="row"><div class="field"><label>Employment type</label><select id="wEmpType">${EMPLOYMENT_TYPES.map(t=>`<option value="${t}" ${e1.type===t?'selected':''}>${t}</option>`).join('')}</select></div><div class="field"><label>Employer / business name</label><input id="wEmployer" value="${esc(e1.employer)}"></div></div>
-        <div class="row"><div class="field"><label>Job title</label><input id="wJobTitle" value="${esc(e1.jobTitle)}"></div><div class="field"><label>Start date</label><input type="date" id="wEmpStart" value="${esc(e1.startDate)}"></div></div>
-        <div class="row"><div class="field"><label>Basic annual salary</label><input type="number" id="wSalary" value="${e1.basicSalary||0}"></div><div class="field"><label>Other annual income</label><input type="number" id="wOtherInc" value="${e1.otherIncome||0}"></div></div>
-        <div class="field"><label>Other income source</label><input id="wOtherSrc" value="${esc(e1.otherIncomeSource)}" placeholder="Bonus, overtime, rental, etc."></div>
-        ${c.applicationType==='joint'?`<h4>Applicant 2 Employment</h4>
-        <div class="row"><div class="field"><label>Employment type</label><select id="wEmp2Type">${EMPLOYMENT_TYPES.map(t=>`<option value="${t}" ${c.employment2?.type===t?'selected':''}>${t}</option>`).join('')}</select></div><div class="field"><label>Employer</label><input id="wEmp2Name" value="${esc(c.employment2?.employer||'')}"></div></div>
-        <div class="row"><div class="field"><label>Basic salary</label><input type="number" id="wSal2" value="${c.employment2?.basicSalary||0}"></div><div class="field"><label>Other income</label><input type="number" id="wOther2" value="${c.employment2?.otherIncome||0}"></div></div>`:''}`;break;
-    case 'expenditure':
-      const ex=c.expenditure;
-      b.innerHTML=`<h3>Monthly Expenditure</h3><div class="step-sub">Committed monthly outgoings — used for affordability assessment</div>
-        <div class="row"><div class="field"><label>Existing mortgage</label><input type="number" id="wExMort" value="${ex.mortgage||0}"></div><div class="field"><label>Rent</label><input type="number" id="wExRent" value="${ex.rent||0}"></div></div>
-        <div class="row"><div class="field"><label>Loans</label><input type="number" id="wExLoans" value="${ex.loans||0}"></div><div class="field"><label>Credit cards (min payment)</label><input type="number" id="wExCC" value="${ex.creditCards||0}"></div></div>
-        <div class="row"><div class="field"><label>Childcare</label><input type="number" id="wExChild" value="${ex.childcare||0}"></div><div class="field"><label>School fees</label><input type="number" id="wExSchool" value="${ex.schoolFees||0}"></div></div>
-        <div class="row"><div class="field"><label>Maintenance payments</label><input type="number" id="wExMaint" value="${ex.maintenance||0}"></div><div class="field"><label>Travel / commuting</label><input type="number" id="wExTravel" value="${ex.travel||0}"></div></div>
-        <div class="row"><div class="field"><label>Utilities</label><input type="number" id="wExUtil" value="${ex.utilities||0}"></div><div class="field"><label>Insurance</label><input type="number" id="wExIns" value="${ex.insurance||0}"></div></div>
-        <div class="row"><div class="field"><label>Other</label><input type="number" id="wExOther" value="${ex.other||0}"></div><div class="field"><label>Dependants</label><input type="number" id="wDeps" value="${ex.dependants||0}"></div></div>
-        <div class="field"><label>Dependant ages</label><input id="wDepAges" value="${esc(ex.dependantAges)}" placeholder="e.g. 4, 7, 12"></div>`;break;
-    case 'credit':
-      const cr=c.credit;
-      b.innerHTML=`<h3>Credit History</h3><div class="step-sub">Disclosure of any adverse credit — the lender will verify via credit reference agencies</div>
-        ${['adverse','ccjs','defaults','iva','bankruptcy','missedPayments','paydayLoans'].map(k=>`<div style="margin-bottom:8px"><label style="font-size:13px;display:flex;align-items:center"><input type="checkbox" id="wCr_${k}" ${cr[k]?'checked':''}> ${k.replace(/([A-Z])/g,' $1').replace(/^./,s=>s.toUpperCase())}</label></div>`).join('')}
-        <div class="field"><label>Notes</label><textarea id="wCrNotes" rows="3">${esc(cr.notes)}</textarea></div>`;break;
-    case 'demands':
-      const dm=c.demands;
-      b.innerHTML=`<h3>Demands & Needs</h3><div class="step-sub">MCOB 4.7A — what the client wants from the mortgage</div>
-        <div class="row"><div class="field"><label>Mortgage type</label><select id="wDnType">${MORTGAGE_TYPES.map(t=>`<option value="${t}" ${dm.mortgageType===t?'selected':''}>${t}</option>`).join('')}</select></div><div class="field"><label>Loan amount</label><input type="number" id="wDnLoan" value="${dm.loanAmount||0}"></div></div>
-        <div class="row"><div class="field"><label>Term (years)</label><input type="number" id="wDnTerm" value="${dm.term||25}"></div><div class="field"><label>Repayment type</label><select id="wDnRepay">${REPAYMENT_TYPES.map(t=>`<option value="${t}" ${dm.repayment===t?'selected':''}>${t}</option>`).join('')}</select></div></div>
-        <h4>Priorities</h4>
-        <div style="margin-bottom:6px"><label style="font-size:13px"><input type="checkbox" id="wDnRate" ${dm.priorityRate?'checked':''}> Lowest rate (cost priority)</label></div>
-        <div style="margin-bottom:6px"><label style="font-size:13px"><input type="checkbox" id="wDnCert" ${dm.priorityCertainty?'checked':''}> Payment certainty (fixed rate preference)</label></div>
-        <div style="margin-bottom:6px"><label style="font-size:13px"><input type="checkbox" id="wDnFlex" ${dm.priorityFlexibility?'checked':''}> Flexibility (overpayments, portability)</label></div>
-        <div style="margin-bottom:6px"><label style="font-size:13px"><input type="checkbox" id="wDnPort" ${dm.priorityPortability?'checked':''}> Portability</label></div>
-        <div class="field"><label>Additional needs / notes</label><textarea id="wDnNotes" rows="3">${esc(dm.additionalNeeds)}</textarea></div>`;break;
-    case 'aml':
-      const am=c.aml;
-      b.innerHTML=`<h3>AML CDD</h3><div class="step-sub">MLR 2017 / JMLSG guidance — identity, source of deposit, sanctions, PEP</div>
-        <div style="margin-bottom:8px"><label style="font-size:13px"><input type="checkbox" id="wIdVer" ${am.idVerified?'checked':''}> ID verified (passport / driving licence)</label></div>
-        <div style="margin-bottom:8px"><label style="font-size:13px"><input type="checkbox" id="wAddrVer" ${am.addressVerified?'checked':''}> Address verified (utility bill / bank statement)</label></div>
-        <h4>Source of Deposit</h4>
-        <div class="row"><div class="field"><label>Source</label><select id="wSoD"><option value="">—</option>${['savings','equity','gift','inheritance','sale-of-assets','overseas','compensation','other'].map(t=>`<option value="${t}" ${am.sourceOfDeposit===t?'selected':''}>${t}</option>`).join('')}</select></div><div class="field"><label>Deposit amount</label><input type="number" id="wDepAmt" value="${am.depositAmount||0}"></div></div>
-        <div id="giftFields" style="display:${am.sourceOfDeposit==='gift'?'block':'none'}">
-          <div style="margin-bottom:8px"><label style="font-size:13px"><input type="checkbox" id="wGiftLetter" ${am.giftLetter?'checked':''}> Gift letter obtained</label></div>
-          <div class="row"><div class="field"><label>Giftor name</label><input id="wGiftorName" value="${esc(am.giftorName)}"></div><div class="field"><label>Relationship</label><input id="wGiftorRel" value="${esc(am.giftorRelationship)}"></div></div>
-        </div>
-        <h4>Sanctions & PEP</h4>
-        <div style="margin-bottom:8px"><label style="font-size:13px"><input type="checkbox" id="wSanChk" ${am.sanctionsChecked?'checked':''}> Sanctions screening completed</label></div>
-        <div style="margin-bottom:8px"><label style="font-size:13px"><input type="checkbox" id="wSanMatch" ${am.sanctionsMatch?'checked':''}> Sanctions match found</label></div>
-        <div style="margin-bottom:8px"><label style="font-size:13px"><input type="checkbox" id="wPep" ${am.pepStatus?'checked':''}> Politically Exposed Person (PEP)</label></div>
-        <div style="margin-bottom:8px"><label style="font-size:13px"><input type="checkbox" id="wCddDone" ${am.cddComplete?'checked':''}> CDD complete — all checks satisfactory</label></div>
-        <div class="field"><label>AML notes</label><textarea id="wAmlNotes" rows="2">${esc(am.notes)}</textarea></div>`;
-      setTimeout(()=>{const sel=$('#wSoD');if(sel)sel.addEventListener('change',()=>{const gf=$('#giftFields');if(gf)gf.style.display=sel.value==='gift'?'block':'none';});},50);break;
-    case 'vulnerable':
-      const vu=c.vulnerable;
-      b.innerHTML=`<h3>Vulnerable Customer Assessment</h3><div class="step-sub">FCA FG21/1 — identify vulnerability and record adjustments</div>
-        <div style="margin-bottom:10px"><label style="font-size:13px"><input type="checkbox" id="wVulnId" ${vu.identified?'checked':''}> Vulnerability identified</label></div>
-        <div id="vulnFields" style="display:${vu.identified?'block':'none'}">
-          <div class="field"><label>Category</label><select id="wVulnCat"><option value="">—</option>${['health','life-event','resilience','capability'].map(t=>`<option value="${t}" ${vu.category===t?'selected':''}>${t}</option>`).join('')}</select><div class="hint">Health = physical/mental · Life event = bereavement/job loss · Resilience = financial · Capability = literacy/language</div></div>
-          <div class="field"><label>Details</label><textarea id="wVulnDetails" rows="3">${esc(vu.details)}</textarea></div>
-          <div class="field"><label>Adjustments made</label><textarea id="wVulnAdj" rows="2">${esc(vu.adjustments)}</textarea></div>
-          <div class="row"><div class="field"><label>Communication preferences</label><input id="wVulnComms" value="${esc(vu.communicationPrefs)}"></div><div class="field"><label>Review date</label><input type="date" id="wVulnReview" value="${esc(vu.reviewDate)}"></div></div>
-        </div>`;
-      setTimeout(()=>{const cb=$('#wVulnId');if(cb)cb.addEventListener('change',()=>{const vf=$('#vulnFields');if(vf)vf.style.display=cb.checked?'block':'none';});},50);break;
-    case 'documents':
-      b.innerHTML=`<h3>Document Capture</h3><div class="step-sub">Upload and hash documents for the lender package</div>
-        <div class="dz" id="dropZone" onclick="document.getElementById('fileInput').click()">
-          <div class="icon">△</div>
-          <div class="label">Drop files or click to upload</div>
-        </div>
-        <input type="file" id="fileInput" style="display:none" multiple onchange="handleFiles(this.files)">
-        <div class="row" style="margin-top:10px"><div class="field"><label>Document type</label><select id="wDocType">${DOC_TYPES.map(d=>`<option value="${d.id}">${d.label}</option>`).join('')}</select></div></div>
-        <div class="doc-list" id="wizDocList">${(c.documents||[]).map(d=>`<div class="doc-row"><span class="dtype">${esc(d.type)}</span><span class="dname">${esc(d.name)}</span><span class="dmeta">${dateStr(d.uploadedAt)}</span><span class="dhash">${esc(d.sha256)}</span></div>`).join('')}</div>
-        <h4 style="margin-top:18px">Lender Package Checklist</h4>
-        <div style="font-size:12px;color:var(--cream-dim);margin-bottom:10px">Tick items as completed for the lender submission pack</div>
-        ${['ID verified','Address verified','Proof of income','Bank statements 3 months','Credit report','Deposit evidence','Mortgage statement (remortgage)','Property details','EPC'].map(item=>{const key=item.replace(/\s/g,'_').toLowerCase();return `<div style="margin-bottom:6px"><label style="font-size:13px"><input type="checkbox" class="lenderChk" data-key="${key}" ${c.lenderPackage?.checklist?.[key]?'checked':''}> ${item}</label></div>`;}).join('')}`;
-      setTimeout(()=>{
-        const dz=$('#dropZone');if(dz){dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('hover');});dz.addEventListener('dragleave',()=>dz.classList.remove('hover'));dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('hover');handleFiles(e.dataTransfer.files);});}
-      },50);break;
-  }
+ const b=$('#wizBody');if(!b)return;
+ switch(stepId){
+ case 'type':
+ b.innerHTML=`<h3>Application Type</h3><div class="step-sub">Sole or joint application?</div>
+ <div class="row"><div class="field"><label>Type</label><select id="wType"><option value="sole" ${c.applicationType==='sole'?'selected':''}>Sole</option><option value="joint" ${c.applicationType==='joint'?'selected':''}>Joint</option></select></div></div>`;break;
+ case 'applicant1':
+ const a1=c.applicant1;
+ b.innerHTML=`<h3>Applicant 1</h3><div class="step-sub">Personal details of the primary applicant</div>
+ <div class="row"><div class="field"><label>Title</label><select id="wA1Title">${['Mr','Mrs','Ms','Miss','Dr','Prof'].map(t=>`<option ${a1.title===t?'selected':''}>${t}</option>`).join('')}</select></div><div class="field"><label>First name<span class="req">*</span></label><input id="wA1First" value="${esc(a1.firstName)}"></div></div>
+ <div class="row"><div class="field"><label>Last name<span class="req">*</span></label><input id="wA1Last" value="${esc(a1.lastName)}"></div><div class="field"><label>Date of birth</label><input type="date" id="wA1Dob" value="${esc(a1.dob)}"></div></div>
+ <div class="row"><div class="field"><label>Nationality</label><input id="wA1Nat" value="${esc(a1.nationality)}"></div><div class="field"><label>NI number</label><input id="wA1Ni" value="${esc(a1.niNumber)}" placeholder="QQ 12 34 56 A"></div></div>
+ <div class="field"><label>Marital status</label><select id="wA1Marital">${['single','married','civil-partnership','divorced','widowed','separated','cohabiting'].map(s=>`<option value="${s}" ${a1.maritalStatus===s?'selected':''}>${s}</option>`).join('')}</select></div>`;break;
+ case 'applicant2':
+ const a2=c.applicant2;
+ b.innerHTML=`<h3>Applicant 2</h3><div class="step-sub">Joint applicant details</div>
+ <div class="row"><div class="field"><label>Title</label><select id="wA2Title">${['Mr','Mrs','Ms','Miss','Dr'].map(t=>`<option ${a2.title===t?'selected':''}>${t}</option>`).join('')}</select></div><div class="field"><label>First name</label><input id="wA2First" value="${esc(a2.firstName)}"></div></div>
+ <div class="row"><div class="field"><label>Last name</label><input id="wA2Last" value="${esc(a2.lastName)}"></div><div class="field"><label>Date of birth</label><input type="date" id="wA2Dob" value="${esc(a2.dob)}"></div></div>
+ <div class="row"><div class="field"><label>NI number</label><input id="wA2Ni" value="${esc(a2.niNumber)}"></div><div class="field"><label>Marital status</label><select id="wA2Marital">${['single','married','civil-partnership','divorced','widowed','separated','cohabiting'].map(s=>`<option value="${s}" ${a2.maritalStatus===s?'selected':''}>${s}</option>`).join('')}</select></div></div>`;break;
+ case 'contact':
+ const co=c.contact;
+ b.innerHTML=`<h3>Contact & Property</h3><div class="step-sub">Current address and contact details</div>
+ <div class="field"><label>Address</label><input id="wAddr" value="${esc(co.address)}"></div>
+ <div class="row"><div class="field"><label>City</label><input id="wCity" value="${esc(co.city)}"></div><div class="field"><label>Postcode</label><input id="wPost" value="${esc(co.postcode)}"></div></div>
+ <div class="row"><div class="field"><label>Phone</label><input id="wPhone" value="${esc(co.phone)}"></div><div class="field"><label>Email</label><input type="email" id="wEmail" value="${esc(co.email)}"></div></div>
+ <div class="field"><label>Years at address</label><input type="number" id="wYears" value="${co.yearsAtAddress||0}"></div>
+ <h4>Subject property</h4>
+ <div class="field"><label>Property address</label><input id="wPropAddr" value="${esc(c.property?.address||'')}"></div>
+ <div class="row"><div class="field"><label>Postcode</label><input id="wPropPost" value="${esc(c.property?.postcode||'')}"></div><div class="field"><label>Estimated value</label><input type="number" id="wPropVal" value="${c.property?.value||0}"></div></div>
+ <div class="row"><div class="field"><label>Property type</label><select id="wPropType"><option value="">—</option>${['detached','semi-detached','terraced','flat','bungalow','maisonette','new-build','conversion','other'].map(t=>`<option value="${t}" ${c.property?.type===t?'selected':''}>${t}</option>`).join('')}</select></div><div class="field"><label>Tenure</label><select id="wTenure">${['freehold','leasehold','commonhold'].map(t=>`<option value="${t}" ${c.property?.tenure===t?'selected':''}>${t}</option>`).join('')}</select></div></div>`;break;
+ case 'employment':
+ const e1=c.employment1;
+ b.innerHTML=`<h3>Employment & Income</h3><div class="step-sub">Applicant 1 employment details</div>
+ <div class="row"><div class="field"><label>Employment type</label><select id="wEmpType">${EMPLOYMENT_TYPES.map(t=>`<option value="${t}" ${e1.type===t?'selected':''}>${t}</option>`).join('')}</select></div><div class="field"><label>Employer / business name</label><input id="wEmployer" value="${esc(e1.employer)}"></div></div>
+ <div class="row"><div class="field"><label>Job title</label><input id="wJobTitle" value="${esc(e1.jobTitle)}"></div><div class="field"><label>Start date</label><input type="date" id="wEmpStart" value="${esc(e1.startDate)}"></div></div>
+ <div class="row"><div class="field"><label>Basic annual salary</label><input type="number" id="wSalary" value="${e1.basicSalary||0}"></div><div class="field"><label>Other annual income</label><input type="number" id="wOtherInc" value="${e1.otherIncome||0}"></div></div>
+ <div class="field"><label>Other income source</label><input id="wOtherSrc" value="${esc(e1.otherIncomeSource)}" placeholder="Bonus, overtime, rental, etc."></div>
+ ${c.applicationType==='joint'?`<h4>Applicant 2 Employment</h4>
+ <div class="row"><div class="field"><label>Employment type</label><select id="wEmp2Type">${EMPLOYMENT_TYPES.map(t=>`<option value="${t}" ${c.employment2?.type===t?'selected':''}>${t}</option>`).join('')}</select></div><div class="field"><label>Employer</label><input id="wEmp2Name" value="${esc(c.employment2?.employer||'')}"></div></div>
+ <div class="row"><div class="field"><label>Basic salary</label><input type="number" id="wSal2" value="${c.employment2?.basicSalary||0}"></div><div class="field"><label>Other income</label><input type="number" id="wOther2" value="${c.employment2?.otherIncome||0}"></div></div>`:''}`;break;
+ case 'expenditure':
+ const ex=c.expenditure;
+ b.innerHTML=`<h3>Monthly Expenditure</h3><div class="step-sub">Committed monthly outgoings — used for affordability assessment</div>
+ <div class="row"><div class="field"><label>Existing mortgage</label><input type="number" id="wExMort" value="${ex.mortgage||0}"></div><div class="field"><label>Rent</label><input type="number" id="wExRent" value="${ex.rent||0}"></div></div>
+ <div class="row"><div class="field"><label>Loans</label><input type="number" id="wExLoans" value="${ex.loans||0}"></div><div class="field"><label>Credit cards (min payment)</label><input type="number" id="wExCC" value="${ex.creditCards||0}"></div></div>
+ <div class="row"><div class="field"><label>Childcare</label><input type="number" id="wExChild" value="${ex.childcare||0}"></div><div class="field"><label>School fees</label><input type="number" id="wExSchool" value="${ex.schoolFees||0}"></div></div>
+ <div class="row"><div class="field"><label>Maintenance payments</label><input type="number" id="wExMaint" value="${ex.maintenance||0}"></div><div class="field"><label>Travel / commuting</label><input type="number" id="wExTravel" value="${ex.travel||0}"></div></div>
+ <div class="row"><div class="field"><label>Utilities</label><input type="number" id="wExUtil" value="${ex.utilities||0}"></div><div class="field"><label>Insurance</label><input type="number" id="wExIns" value="${ex.insurance||0}"></div></div>
+ <div class="row"><div class="field"><label>Other</label><input type="number" id="wExOther" value="${ex.other||0}"></div><div class="field"><label>Dependants</label><input type="number" id="wDeps" value="${ex.dependants||0}"></div></div>
+ <div class="field"><label>Dependant ages</label><input id="wDepAges" value="${esc(ex.dependantAges)}" placeholder="e.g. 4, 7, 12"></div>`;break;
+ case 'credit':
+ const cr=c.credit;
+ b.innerHTML=`<h3>Credit History</h3><div class="step-sub">Disclosure of any adverse credit — the lender will verify via credit reference agencies</div>
+ ${['adverse','ccjs','defaults','iva','bankruptcy','missedPayments','paydayLoans'].map(k=>`<div style="margin-bottom:8px"><label style="font-size:13px;display:flex;align-items:center"><input type="checkbox" id="wCr_${k}" ${cr[k]?'checked':''}> ${k.replace(/([A-Z])/g,' $1').replace(/^./,s=>s.toUpperCase())}</label></div>`).join('')}
+ <div class="field"><label>Notes</label><textarea id="wCrNotes" rows="3">${esc(cr.notes)}</textarea></div>`;break;
+ case 'demands':
+ const dm=c.demands;
+ b.innerHTML=`<h3>Demands & Needs</h3><div class="step-sub">MCOB 4.7A — what the client wants from the mortgage</div>
+ <div class="row"><div class="field"><label>Mortgage type</label><select id="wDnType">${MORTGAGE_TYPES.map(t=>`<option value="${t}" ${dm.mortgageType===t?'selected':''}>${t}</option>`).join('')}</select></div><div class="field"><label>Loan amount</label><input type="number" id="wDnLoan" value="${dm.loanAmount||0}"></div></div>
+ <div class="row"><div class="field"><label>Term (years)</label><input type="number" id="wDnTerm" value="${dm.term||25}"></div><div class="field"><label>Repayment type</label><select id="wDnRepay">${REPAYMENT_TYPES.map(t=>`<option value="${t}" ${dm.repayment===t?'selected':''}>${t}</option>`).join('')}</select></div></div>
+ <h4>Priorities</h4>
+ <div style="margin-bottom:6px"><label style="font-size:13px"><input type="checkbox" id="wDnRate" ${dm.priorityRate?'checked':''}> Lowest rate (cost priority)</label></div>
+ <div style="margin-bottom:6px"><label style="font-size:13px"><input type="checkbox" id="wDnCert" ${dm.priorityCertainty?'checked':''}> Payment certainty (fixed rate preference)</label></div>
+ <div style="margin-bottom:6px"><label style="font-size:13px"><input type="checkbox" id="wDnFlex" ${dm.priorityFlexibility?'checked':''}> Flexibility (overpayments, portability)</label></div>
+ <div style="margin-bottom:6px"><label style="font-size:13px"><input type="checkbox" id="wDnPort" ${dm.priorityPortability?'checked':''}> Portability</label></div>
+ <div class="field"><label>Additional needs / notes</label><textarea id="wDnNotes" rows="3">${esc(dm.additionalNeeds)}</textarea></div>`;break;
+ case 'aml':
+ const am=c.aml;
+ b.innerHTML=`<h3>AML CDD</h3><div class="step-sub">MLR 2017 / JMLSG guidance — identity, source of deposit, sanctions, PEP</div>
+ <div style="margin-bottom:8px"><label style="font-size:13px"><input type="checkbox" id="wIdVer" ${am.idVerified?'checked':''}> ID verified (passport / driving licence)</label></div>
+ <div style="margin-bottom:8px"><label style="font-size:13px"><input type="checkbox" id="wAddrVer" ${am.addressVerified?'checked':''}> Address verified (utility bill / bank statement)</label></div>
+ <h4>Source of Deposit</h4>
+ <div class="row"><div class="field"><label>Source</label><select id="wSoD"><option value="">—</option>${['savings','equity','gift','inheritance','sale-of-assets','overseas','compensation','other'].map(t=>`<option value="${t}" ${am.sourceOfDeposit===t?'selected':''}>${t}</option>`).join('')}</select></div><div class="field"><label>Deposit amount</label><input type="number" id="wDepAmt" value="${am.depositAmount||0}"></div></div>
+ <div id="giftFields" style="display:${am.sourceOfDeposit==='gift'?'block':'none'}">
+ <div style="margin-bottom:8px"><label style="font-size:13px"><input type="checkbox" id="wGiftLetter" ${am.giftLetter?'checked':''}> Gift letter obtained</label></div>
+ <div class="row"><div class="field"><label>Giftor name</label><input id="wGiftorName" value="${esc(am.giftorName)}"></div><div class="field"><label>Relationship</label><input id="wGiftorRel" value="${esc(am.giftorRelationship)}"></div></div>
+ </div>
+ <h4>Sanctions & PEP</h4>
+ <div style="margin-bottom:8px"><label style="font-size:13px"><input type="checkbox" id="wSanChk" ${am.sanctionsChecked?'checked':''}> Sanctions screening completed</label></div>
+ <div style="margin-bottom:8px"><label style="font-size:13px"><input type="checkbox" id="wSanMatch" ${am.sanctionsMatch?'checked':''}> Sanctions match found</label></div>
+ <div style="margin-bottom:8px"><label style="font-size:13px"><input type="checkbox" id="wPep" ${am.pepStatus?'checked':''}> Politically Exposed Person (PEP)</label></div>
+ <div style="margin-bottom:8px"><label style="font-size:13px"><input type="checkbox" id="wCddDone" ${am.cddComplete?'checked':''}> CDD complete — all checks satisfactory</label></div>
+ <div class="field"><label>AML notes</label><textarea id="wAmlNotes" rows="2">${esc(am.notes)}</textarea></div>`;
+ setTimeout(()=>{const sel=$('#wSoD');if(sel)sel.addEventListener('change',()=>{const gf=$('#giftFields');if(gf)gf.style.display=sel.value==='gift'?'block':'none';});},50);break;
+ case 'vulnerable':
+ const vu=c.vulnerable;
+ b.innerHTML=`<h3>Vulnerable Customer Assessment</h3><div class="step-sub">FCA FG21/1 — identify vulnerability and record adjustments</div>
+ <div style="margin-bottom:10px"><label style="font-size:13px"><input type="checkbox" id="wVulnId" ${vu.identified?'checked':''}> Vulnerability identified</label></div>
+ <div id="vulnFields" style="display:${vu.identified?'block':'none'}">
+ <div class="field"><label>Category</label><select id="wVulnCat"><option value="">—</option>${['health','life-event','resilience','capability'].map(t=>`<option value="${t}" ${vu.category===t?'selected':''}>${t}</option>`).join('')}</select><div class="hint">Health = physical/mental · Life event = bereavement/job loss · Resilience = financial · Capability = literacy/language</div></div>
+ <div class="field"><label>Details</label><textarea id="wVulnDetails" rows="3">${esc(vu.details)}</textarea></div>
+ <div class="field"><label>Adjustments made</label><textarea id="wVulnAdj" rows="2">${esc(vu.adjustments)}</textarea></div>
+ <div class="row"><div class="field"><label>Communication preferences</label><input id="wVulnComms" value="${esc(vu.communicationPrefs)}"></div><div class="field"><label>Review date</label><input type="date" id="wVulnReview" value="${esc(vu.reviewDate)}"></div></div>
+ </div>`;
+ setTimeout(()=>{const cb=$('#wVulnId');if(cb)cb.addEventListener('change',()=>{const vf=$('#vulnFields');if(vf)vf.style.display=cb.checked?'block':'none';});},50);break;
+ case 'documents':
+ b.innerHTML=`<h3>Document Capture</h3><div class="step-sub">Upload and hash documents for the lender package</div>
+ <div class="dz" id="dropZone" onclick="document.getElementById('fileInput').click()">
+ <div class="icon">△</div>
+ <div class="label">Drop files or click to upload</div>
+ </div>
+ <input type="file" id="fileInput" style="display:none" multiple onchange="handleFiles(this.files)">
+ <div class="row" style="margin-top:10px"><div class="field"><label>Document type</label><select id="wDocType">${DOC_TYPES.map(d=>`<option value="${d.id}">${d.label}</option>`).join('')}</select></div></div>
+ <div class="doc-list" id="wizDocList">${(c.documents||[]).map(d=>`<div class="doc-row"><span class="dtype">${esc(d.type)}</span><span class="dname">${esc(d.name)}</span><span class="dmeta">${dateStr(d.uploadedAt)}</span><span class="dhash">${esc(d.sha256)}</span></div>`).join('')}</div>
+ <h4 style="margin-top:18px">Lender Package Checklist</h4>
+ <div style="font-size:12px;color:var(--cream-dim);margin-bottom:10px">Tick items as completed for the lender submission pack</div>
+ ${['ID verified','Address verified','Proof of income','Bank statements 3 months','Credit report','Deposit evidence','Mortgage statement (remortgage)','Property details','EPC'].map(item=>{const key=item.replace(/\s/g,'_').toLowerCase();return `<div style="margin-bottom:6px"><label style="font-size:13px"><input type="checkbox" class="lenderChk" data-key="${key}" ${c.lenderPackage?.checklist?.[key]?'checked':''}> ${item}</label></div>`;}).join('')}`;
+ setTimeout(()=>{
+ const dz=$('#dropZone');if(dz){dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('hover');});dz.addEventListener('dragleave',()=>dz.classList.remove('hover'));dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('hover');handleFiles(e.dataTransfer.files);});}
+ },50);break;
+ }
 }
 
 async function handleFiles(files){
-  if(!files||!files.length)return;
-  const w=state.ui.wizard;if(!w)return;
-  const docType=$('#wDocType')?.value||'other';
-  for(const file of files){
-    const buf=await file.arrayBuffer();const hash=await sha256(new TextDecoder().decode(new Uint8Array(buf).slice(0,1024)));
-    const meta={id:uid('doc'),clientId:w.clientId,type:docType,name:file.name,size:file.size,sha256:hash.slice(0,16),uploadedAt:now(),expiresAt:null};
-    const dt=DOC_TYPES.find(d=>d.id===docType);if(dt)meta.expiresAt=now()+dt.expiry*86400000;
-    w.client.documents.push(meta);
-  }
-  toast(files.length+' file(s) captured');
-  const list=$('#wizDocList');
-  if(list)list.innerHTML=w.client.documents.map(d=>`<div class="doc-row"><span class="dtype">${esc(d.type)}</span><span class="dname">${esc(d.name)}</span><span class="dmeta">${dateStr(d.uploadedAt)}</span><span class="dhash">${esc(d.sha256)}</span></div>`).join('');
+ if(!files||!files.length)return;
+ const w=state.ui.wizard;if(!w)return;
+ const docType=$('#wDocType')?.value||'other';
+ for(const file of files){
+ const buf=await file.arrayBuffer();const hash=await sha256(new TextDecoder().decode(new Uint8Array(buf).slice(0,1024)));
+ const meta={id:uid('doc'),clientId:w.clientId,type:docType,name:file.name,size:file.size,sha256:hash.slice(0,16),uploadedAt:now(),expiresAt:null};
+ const dt=DOC_TYPES.find(d=>d.id===docType);if(dt)meta.expiresAt=now()+dt.expiry*86400000;
+ w.client.documents.push(meta);
+ }
+ toast(files.length+' file(s) captured');
+ const list=$('#wizDocList');
+ if(list)list.innerHTML=w.client.documents.map(d=>`<div class="doc-row"><span class="dtype">${esc(d.type)}</span><span class="dname">${esc(d.name)}</span><span class="dmeta">${dateStr(d.uploadedAt)}</span><span class="dhash">${esc(d.sha256)}</span></div>`).join('');
 }
 
 function collectStep(stepId,c){
-  switch(stepId){
-    case 'type':c.applicationType=$('#wType')?.value||'sole';break;
-    case 'applicant1':
-      c.applicant1.title=$('#wA1Title')?.value||'';c.applicant1.firstName=$('#wA1First')?.value.trim()||'';
-      c.applicant1.lastName=$('#wA1Last')?.value.trim()||'';c.applicant1.dob=$('#wA1Dob')?.value||'';
-      c.applicant1.nationality=$('#wA1Nat')?.value.trim()||'GB';c.applicant1.niNumber=$('#wA1Ni')?.value.trim()||'';
-      c.applicant1.maritalStatus=$('#wA1Marital')?.value||'single';break;
-    case 'applicant2':
-      c.applicant2.title=$('#wA2Title')?.value||'';c.applicant2.firstName=$('#wA2First')?.value.trim()||'';
-      c.applicant2.lastName=$('#wA2Last')?.value.trim()||'';c.applicant2.dob=$('#wA2Dob')?.value||'';
-      c.applicant2.niNumber=$('#wA2Ni')?.value.trim()||'';c.applicant2.maritalStatus=$('#wA2Marital')?.value||'';break;
-    case 'contact':
-      c.contact.address=$('#wAddr')?.value.trim()||'';c.contact.city=$('#wCity')?.value.trim()||'';
-      c.contact.postcode=$('#wPost')?.value.trim()||'';c.contact.phone=$('#wPhone')?.value.trim()||'';
-      c.contact.email=$('#wEmail')?.value.trim()||'';c.contact.yearsAtAddress=parseInt($('#wYears')?.value)||0;
-      c.property={address:$('#wPropAddr')?.value.trim()||'',postcode:$('#wPropPost')?.value.trim()||'',
-        value:parseFloat($('#wPropVal')?.value)||0,type:$('#wPropType')?.value||'',tenure:$('#wTenure')?.value||'freehold',source:'purchase'};break;
-    case 'employment':
-      c.employment1={type:$('#wEmpType')?.value||'employed',employer:$('#wEmployer')?.value.trim()||'',
-        jobTitle:$('#wJobTitle')?.value.trim()||'',startDate:$('#wEmpStart')?.value||'',
-        basicSalary:parseFloat($('#wSalary')?.value)||0,otherIncome:parseFloat($('#wOtherInc')?.value)||0,
-        otherIncomeSource:$('#wOtherSrc')?.value.trim()||''};
-      if(c.applicationType==='joint'){
-        c.employment2={type:$('#wEmp2Type')?.value||'',employer:$('#wEmp2Name')?.value.trim()||'',
-          basicSalary:parseFloat($('#wSal2')?.value)||0,otherIncome:parseFloat($('#wOther2')?.value)||0};
-      }break;
-    case 'expenditure':
-      c.expenditure={mortgage:parseFloat($('#wExMort')?.value)||0,rent:parseFloat($('#wExRent')?.value)||0,
-        loans:parseFloat($('#wExLoans')?.value)||0,creditCards:parseFloat($('#wExCC')?.value)||0,
-        childcare:parseFloat($('#wExChild')?.value)||0,schoolFees:parseFloat($('#wExSchool')?.value)||0,
-        maintenance:parseFloat($('#wExMaint')?.value)||0,travel:parseFloat($('#wExTravel')?.value)||0,
-        utilities:parseFloat($('#wExUtil')?.value)||0,insurance:parseFloat($('#wExIns')?.value)||0,
-        other:parseFloat($('#wExOther')?.value)||0,dependants:parseInt($('#wDeps')?.value)||0,
-        dependantAges:$('#wDepAges')?.value.trim()||''};break;
-    case 'credit':
-      ['adverse','ccjs','defaults','iva','bankruptcy','missedPayments','paydayLoans'].forEach(k=>{c.credit[k]=$('#wCr_'+k)?.checked||false;});
-      c.credit.notes=$('#wCrNotes')?.value.trim()||'';break;
-    case 'demands':
-      c.demands={mortgageType:$('#wDnType')?.value||'purchase',loanAmount:parseFloat($('#wDnLoan')?.value)||0,
-        term:parseInt($('#wDnTerm')?.value)||25,repayment:$('#wDnRepay')?.value||'capital-and-interest',
-        priorityRate:$('#wDnRate')?.checked||false,priorityCertainty:$('#wDnCert')?.checked||false,
-        priorityFlexibility:$('#wDnFlex')?.checked||false,priorityPortability:$('#wDnPort')?.checked||false,
-        additionalNeeds:$('#wDnNotes')?.value.trim()||''};break;
-    case 'aml':
-      c.aml.idVerified=$('#wIdVer')?.checked||false;c.aml.addressVerified=$('#wAddrVer')?.checked||false;
-      c.aml.sourceOfDeposit=$('#wSoD')?.value||'';c.aml.depositAmount=parseFloat($('#wDepAmt')?.value)||0;
-      c.aml.giftLetter=$('#wGiftLetter')?.checked||false;c.aml.giftorName=$('#wGiftorName')?.value.trim()||'';
-      c.aml.giftorRelationship=$('#wGiftorRel')?.value.trim()||'';
-      c.aml.sanctionsChecked=$('#wSanChk')?.checked||false;c.aml.sanctionsMatch=$('#wSanMatch')?.checked||false;
-      c.aml.pepStatus=$('#wPep')?.checked||false;c.aml.cddComplete=$('#wCddDone')?.checked||false;
-      c.aml.notes=$('#wAmlNotes')?.value.trim()||'';break;
-    case 'vulnerable':
-      c.vulnerable.identified=$('#wVulnId')?.checked||false;
-      if(c.vulnerable.identified){
-        c.vulnerable.category=$('#wVulnCat')?.value||'';c.vulnerable.details=$('#wVulnDetails')?.value.trim()||'';
-        c.vulnerable.adjustments=$('#wVulnAdj')?.value.trim()||'';c.vulnerable.communicationPrefs=$('#wVulnComms')?.value.trim()||'';
-        c.vulnerable.reviewDate=$('#wVulnReview')?.value||'';
-      }break;
-    case 'documents':
-      const chk={};$$('.lenderChk').forEach(cb=>{chk[cb.dataset.key]=cb.checked;});
-      c.lenderPackage={complete:Object.values(chk).filter(Boolean).length>=7,checklist:chk};break;
-  }
+ switch(stepId){
+ case 'type':c.applicationType=$('#wType')?.value||'sole';break;
+ case 'applicant1':
+ c.applicant1.title=$('#wA1Title')?.value||'';c.applicant1.firstName=$('#wA1First')?.value.trim()||'';
+ c.applicant1.lastName=$('#wA1Last')?.value.trim()||'';c.applicant1.dob=$('#wA1Dob')?.value||'';
+ c.applicant1.nationality=$('#wA1Nat')?.value.trim()||'GB';c.applicant1.niNumber=$('#wA1Ni')?.value.trim()||'';
+ c.applicant1.maritalStatus=$('#wA1Marital')?.value||'single';break;
+ case 'applicant2':
+ c.applicant2.title=$('#wA2Title')?.value||'';c.applicant2.firstName=$('#wA2First')?.value.trim()||'';
+ c.applicant2.lastName=$('#wA2Last')?.value.trim()||'';c.applicant2.dob=$('#wA2Dob')?.value||'';
+ c.applicant2.niNumber=$('#wA2Ni')?.value.trim()||'';c.applicant2.maritalStatus=$('#wA2Marital')?.value||'';break;
+ case 'contact':
+ c.contact.address=$('#wAddr')?.value.trim()||'';c.contact.city=$('#wCity')?.value.trim()||'';
+ c.contact.postcode=$('#wPost')?.value.trim()||'';c.contact.phone=$('#wPhone')?.value.trim()||'';
+ c.contact.email=$('#wEmail')?.value.trim()||'';c.contact.yearsAtAddress=parseInt($('#wYears')?.value)||0;
+ c.property={address:$('#wPropAddr')?.value.trim()||'',postcode:$('#wPropPost')?.value.trim()||'',
+ value:parseFloat($('#wPropVal')?.value)||0,type:$('#wPropType')?.value||'',tenure:$('#wTenure')?.value||'freehold',source:'purchase'};break;
+ case 'employment':
+ c.employment1={type:$('#wEmpType')?.value||'employed',employer:$('#wEmployer')?.value.trim()||'',
+ jobTitle:$('#wJobTitle')?.value.trim()||'',startDate:$('#wEmpStart')?.value||'',
+ basicSalary:parseFloat($('#wSalary')?.value)||0,otherIncome:parseFloat($('#wOtherInc')?.value)||0,
+ otherIncomeSource:$('#wOtherSrc')?.value.trim()||''};
+ if(c.applicationType==='joint'){
+ c.employment2={type:$('#wEmp2Type')?.value||'',employer:$('#wEmp2Name')?.value.trim()||'',
+ basicSalary:parseFloat($('#wSal2')?.value)||0,otherIncome:parseFloat($('#wOther2')?.value)||0};
+ }break;
+ case 'expenditure':
+ c.expenditure={mortgage:parseFloat($('#wExMort')?.value)||0,rent:parseFloat($('#wExRent')?.value)||0,
+ loans:parseFloat($('#wExLoans')?.value)||0,creditCards:parseFloat($('#wExCC')?.value)||0,
+ childcare:parseFloat($('#wExChild')?.value)||0,schoolFees:parseFloat($('#wExSchool')?.value)||0,
+ maintenance:parseFloat($('#wExMaint')?.value)||0,travel:parseFloat($('#wExTravel')?.value)||0,
+ utilities:parseFloat($('#wExUtil')?.value)||0,insurance:parseFloat($('#wExIns')?.value)||0,
+ other:parseFloat($('#wExOther')?.value)||0,dependants:parseInt($('#wDeps')?.value)||0,
+ dependantAges:$('#wDepAges')?.value.trim()||''};break;
+ case 'credit':
+ ['adverse','ccjs','defaults','iva','bankruptcy','missedPayments','paydayLoans'].forEach(k=>{c.credit[k]=$('#wCr_'+k)?.checked||false;});
+ c.credit.notes=$('#wCrNotes')?.value.trim()||'';break;
+ case 'demands':
+ c.demands={mortgageType:$('#wDnType')?.value||'purchase',loanAmount:parseFloat($('#wDnLoan')?.value)||0,
+ term:parseInt($('#wDnTerm')?.value)||25,repayment:$('#wDnRepay')?.value||'capital-and-interest',
+ priorityRate:$('#wDnRate')?.checked||false,priorityCertainty:$('#wDnCert')?.checked||false,
+ priorityFlexibility:$('#wDnFlex')?.checked||false,priorityPortability:$('#wDnPort')?.checked||false,
+ additionalNeeds:$('#wDnNotes')?.value.trim()||''};break;
+ case 'aml':
+ c.aml.idVerified=$('#wIdVer')?.checked||false;c.aml.addressVerified=$('#wAddrVer')?.checked||false;
+ c.aml.sourceOfDeposit=$('#wSoD')?.value||'';c.aml.depositAmount=parseFloat($('#wDepAmt')?.value)||0;
+ c.aml.giftLetter=$('#wGiftLetter')?.checked||false;c.aml.giftorName=$('#wGiftorName')?.value.trim()||'';
+ c.aml.giftorRelationship=$('#wGiftorRel')?.value.trim()||'';
+ c.aml.sanctionsChecked=$('#wSanChk')?.checked||false;c.aml.sanctionsMatch=$('#wSanMatch')?.checked||false;
+ c.aml.pepStatus=$('#wPep')?.checked||false;c.aml.cddComplete=$('#wCddDone')?.checked||false;
+ c.aml.notes=$('#wAmlNotes')?.value.trim()||'';break;
+ case 'vulnerable':
+ c.vulnerable.identified=$('#wVulnId')?.checked||false;
+ if(c.vulnerable.identified){
+ c.vulnerable.category=$('#wVulnCat')?.value||'';c.vulnerable.details=$('#wVulnDetails')?.value.trim()||'';
+ c.vulnerable.adjustments=$('#wVulnAdj')?.value.trim()||'';c.vulnerable.communicationPrefs=$('#wVulnComms')?.value.trim()||'';
+ c.vulnerable.reviewDate=$('#wVulnReview')?.value||'';
+ }break;
+ case 'documents':
+ const chk={};$$('.lenderChk').forEach(cb=>{chk[cb.dataset.key]=cb.checked;});
+ c.lenderPackage={complete:Object.values(chk).filter(Boolean).length>=7,checklist:chk};break;
+ }
 }
 
 function getSteps(c){return c.applicationType==='sole'?WIZARD_STEPS.filter(s=>s.id!=='applicant2'):WIZARD_STEPS;}
 function nextStep(){
-  const w=state.ui.wizard;if(!w)return;
-  const steps=getSteps(w.client);collectStep(steps[w.step].id,w.client);
-  if(w.step<steps.length-1){w.step++;render();}
+ const w=state.ui.wizard;if(!w)return;
+ const steps=getSteps(w.client);collectStep(steps[w.step].id,w.client);
+ if(w.step<steps.length-1){w.step++;render();}
 }
 function prevStep(){const w=state.ui.wizard;if(!w)return;const steps=getSteps(w.client);collectStep(steps[w.step].id,w.client);if(w.step>0){w.step--;render();}}
 function jumpStep(i){const w=state.ui.wizard;if(!w)return;const steps=getSteps(w.client);collectStep(steps[w.step].id,w.client);w.step=i;render();}
 function cancelWizard(){if(!confirm('Cancel? Unsaved changes will be lost.'))return;state.ui.wizard=null;render();}
 
 async function commitWizard(){
-  const w=state.ui.wizard;if(!w)return;
-  const steps=getSteps(w.client);collectStep(steps[w.step].id,w.client);
-  const c=w.client;
-  if(!c.applicant1.firstName||!c.applicant1.lastName){toast('Applicant 1 name required');return;}
-  c.status=c.aml?.cddComplete&&c.lenderPackage?.complete?'complete':'in-progress';
-  c.adviserId=state.ui.activeAdviserId||'';
-  await saveClient(c,w.fresh?'client.created':'client.updated',w.fresh?'wizard commit — new client':'wizard commit — updated');
-  state.ui.wizard=null;state.ui.selectedClientId=c.id;state.active='clients';
-  toast('Client committed');persistUI();render();
+ const w=state.ui.wizard;if(!w)return;
+ const steps=getSteps(w.client);collectStep(steps[w.step].id,w.client);
+ const c=w.client;
+ if(!c.applicant1.firstName||!c.applicant1.lastName){toast('Applicant 1 name required');return;}
+ c.status=c.aml?.cddComplete&&c.lenderPackage?.complete?'complete':'in-progress';
+ c.adviserId=state.ui.activeAdviserId||'';
+ await saveClient(c,w.fresh?'client.created':'client.updated',w.fresh?'wizard commit — new client':'wizard commit — updated');
+ state.ui.wizard=null;state.ui.selectedClientId=c.id;state.active='clients';
+ toast('Client committed');persistUI();render();
 }
 
 // FIRM
 function renderFirm(v){
-  const f=state.firm||{};
-  v.innerHTML=`
-    <div class="section-h"><h2>Firm Setup</h2></div>
-    <div class="card" style="max-width:620px">
-      <div class="row"><div class="field"><label>Firm name</label><input id="fName" value="${esc(f.name||'')}"></div><div class="field"><label>FCA reference</label><input id="fFca" value="${esc(f.fcaRefNo||'')}"></div></div>
-      <div class="field"><label>Address</label><input id="fAddr" value="${esc(f.address||'')}"></div>
-      <div class="row"><div class="field"><label>Email</label><input id="fEmail" value="${esc(f.email||'')}"></div><div class="field"><label>Phone</label><input id="fPhone" value="${esc(f.phone||'')}"></div></div>
-      <div class="row"><div class="field"><label>Network</label><input id="fNet" value="${esc(f.network||'')}"></div><div class="field"><label>PI insurer</label><input id="fPi" value="${esc(f.piInsurer||'')}"></div></div>
-      <button class="btn primary" onclick="saveFirmForm()" style="margin-top:8px">Save</button>
-    </div>`;
+ const f=state.firm||{};
+ v.innerHTML=`
+ <div class="section-h"><h2>Firm Setup</h2></div>
+ <div class="card" style="max-width:620px">
+ <div class="row"><div class="field"><label>Firm name</label><input id="fName" value="${esc(f.name||'')}"></div><div class="field"><label>FCA reference</label><input id="fFca" value="${esc(f.fcaRefNo||'')}"></div></div>
+ <div class="field"><label>Address</label><input id="fAddr" value="${esc(f.address||'')}"></div>
+ <div class="row"><div class="field"><label>Email</label><input id="fEmail" value="${esc(f.email||'')}"></div><div class="field"><label>Phone</label><input id="fPhone" value="${esc(f.phone||'')}"></div></div>
+ <div class="row"><div class="field"><label>Network</label><input id="fNet" value="${esc(f.network||'')}"></div><div class="field"><label>PI insurer</label><input id="fPi" value="${esc(f.piInsurer||'')}"></div></div>
+ <button class="btn primary" onclick="saveFirmForm()" style="margin-top:8px">Save</button>
+ </div>`;
 }
 async function saveFirmForm(){
-  const f=state.firm||{id:uid('firm'),ts:now()};
-  f.name=$('#fName').value.trim();f.fcaRefNo=$('#fFca').value.trim();
-  f.address=$('#fAddr').value.trim();f.email=$('#fEmail').value.trim();
-  f.phone=$('#fPhone').value.trim();f.network=$('#fNet').value.trim();
-  f.piInsurer=$('#fPi').value.trim();
-  await saveFirm(f,'firm setup saved');toast('Firm saved');render();
+ const f=state.firm||{id:uid('firm'),ts:now()};
+ f.name=$('#fName').value.trim();f.fcaRefNo=$('#fFca').value.trim();
+ f.address=$('#fAddr').value.trim();f.email=$('#fEmail').value.trim();
+ f.phone=$('#fPhone').value.trim();f.network=$('#fNet').value.trim();
+ f.piInsurer=$('#fPi').value.trim();
+ await saveFirm(f,'firm setup saved');toast('Firm saved');render();
 }
 
 // ADVISERS
 function renderAdvisers(v){
-  v.innerHTML=`
-    <div class="section-h"><h2>Advisers</h2><div class="actions"><button class="btn primary sm" onclick="openModal('addadviser')">+ Adviser</button></div></div>
-    ${state.advisers.length?state.advisers.map(a=>`
-      <div class="card" style="max-width:620px;margin-bottom:8px">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <div><strong>${esc(a.name)}</strong> <span style="font-family:var(--mono);font-size:10px;color:var(--cream-muted)">${esc(a.fcaRefNo||'')} · ${esc(a.qualification||'CeMAP')}</span></div>
-          <button class="btn sm ghost" onclick="setActiveAdv('${a.id}')">${state.ui.activeAdviserId===a.id?'✓ Active':'Set active'}</button>
-        </div>
-      </div>`).join(''):'<div class="empty" style="max-width:620px"><div class="small">No advisers. Add one to get started.</div></div>'}`;
+ v.innerHTML=`
+ <div class="section-h"><h2>Advisers</h2><div class="actions"><button class="btn primary sm" onclick="openModal('addadviser')">+ Adviser</button></div></div>
+ ${state.advisers.length?state.advisers.map(a=>`
+ <div class="card" style="max-width:620px;margin-bottom:8px">
+ <div style="display:flex;justify-content:space-between;align-items:center">
+ <div><strong>${esc(a.name)}</strong> <span style="font-family:var(--mono);font-size:10px;color:var(--cream-muted)">${esc(a.fcaRefNo||'')} · ${esc(a.qualification||'CeMAP')}</span></div>
+ <button class="btn sm ghost" onclick="setActiveAdv('${a.id}')">${state.ui.activeAdviserId===a.id?'✓ Active':'Set active'}</button>
+ </div>
+ </div>`).join(''):'<div class="empty" style="max-width:620px"><div class="small">No advisers. Add one to get started.</div></div>'}`;
 }
 function setActiveAdv(id){state.ui.activeAdviserId=id;persistUI();toast('Active adviser set');render();}
 
 // HELP — T0 + T3
 const T0_RULES=[
-  {q:/fact.?find|onboard/i,a:'The mortgage fact-find must capture sufficient information to make a suitable recommendation per MCOB 4.7A. This includes: personal details, employment and income, expenditure and commitments, credit history, demands and needs, deposit source, and any vulnerability. Retain for 7 years per FCA SYSC.'},
-  {q:/aml|money launder|cdd|kyc/i,a:'Under MLR 2017, mortgage brokers must conduct CDD on all clients: verify identity (passport/driving licence), verify address (utility bill/bank statement), assess source of deposit (especially gifts and overseas funds), screen against sanctions lists, and check PEP status. Enhanced due diligence for high-risk clients.'},
-  {q:/source of deposit|gift|deposit/i,a:'Lenders and MLR 2017 require evidence of the deposit source. For savings: bank statements showing accumulation. For gifts: a signed gift letter confirming no repayment obligation, and proof of the giftor\'s source of funds. For equity: latest mortgage statement + valuation. For overseas funds: additional scrutiny under JMLSG Part II.'},
-  {q:/vulnerab/i,a:'FCA FG21/1 defines vulnerability across four categories: health, life events, resilience, and capability. Document the vulnerability, adjustments made, and communication preferences. Review at each material interaction. Mortgage decisions are high-impact — ensure the client has adequate time and support to make informed choices.'},
-  {q:/affordab|stress|expenditure/i,a:'Under MCOB 11.6.18R, the lender must stress-test affordability. The broker should capture comprehensive expenditure data including: existing debts, childcare, school fees, maintenance obligations, and general living costs. ONS benchmarks are used as a minimum by many lenders. Document total committed expenditure vs net disposable income.'},
-  {q:/credit|adverse|ccj|default/i,a:'Full credit disclosure is essential. Lenders will hard-search via Experian/Equifax/TransUnion. Undisclosed adverse credit discovered at application wastes time and damages the client relationship. Common adverse markers: CCJs (satisfied or not, <6 years), defaults, IVAs, bankruptcy (discharged or not), missed payments, and payday loans.'},
-  {q:/demand|need|mcob 4/i,a:'MCOB 4.7A requires the adviser to assess the client\'s demands and needs before making a recommendation. Key areas: type of mortgage (purchase/remortgage/product switch), loan amount, term, repayment type, and priorities (rate vs certainty vs flexibility vs portability). Document these before sourcing.'},
-  {q:/document|passport|payslip|evidence/i,a:'Standard lender requirements: ID (passport/driving licence), address proof (utility bill/bank statement <3 months), income evidence (payslips ×3 / P60 / SA302 / accountant\'s accounts), bank statements ×3, deposit evidence, current mortgage statement (remortgage), property details, and EPC. Hash all documents for audit trail integrity.'},
-  {q:/pep|sanction/i,a:'PEP (Politically Exposed Person) status requires enhanced due diligence under MLR 2017. Sanctions screening must be conducted against the HM Treasury consolidated list. A sanctions match requires immediate reporting to the NCA and must not proceed. PEP status does not prohibit the transaction but requires enhanced scrutiny of source of funds.'},
-  {q:/retention|record|7 year/i,a:'FCA SYSC requires firms to retain all client records, advice records, and transaction records for a minimum of 7 years from the end of the business relationship. This includes the fact-find, suitability report, correspondence, complaints, and audit trail. FallMortgageOnboard stores everything in IndexedDB with JSON export for backup.'},
+ {q:/fact.?find|onboard/i,a:'The mortgage fact-find must capture sufficient information to make a suitable recommendation per MCOB 4.7A. This includes: personal details, employment and income, expenditure and commitments, credit history, demands and needs, deposit source, and any vulnerability. Retain for 7 years per FCA SYSC.'},
+ {q:/aml|money launder|cdd|kyc/i,a:'Under MLR 2017, mortgage brokers must conduct CDD on all clients: verify identity (passport/driving licence), verify address (utility bill/bank statement), assess source of deposit (especially gifts and overseas funds), screen against sanctions lists, and check PEP status. Enhanced due diligence for high-risk clients.'},
+ {q:/source of deposit|gift|deposit/i,a:'Lenders and MLR 2017 require evidence of the deposit source. For savings: bank statements showing accumulation. For gifts: a signed gift letter confirming no repayment obligation, and proof of the giftor\'s source of funds. For equity: latest mortgage statement + valuation. For overseas funds: additional scrutiny under JMLSG Part II.'},
+ {q:/vulnerab/i,a:'FCA FG21/1 defines vulnerability across four categories: health, life events, resilience, and capability. Document the vulnerability, adjustments made, and communication preferences. Review at each material interaction. Mortgage decisions are high-impact — ensure the client has adequate time and support to make informed choices.'},
+ {q:/affordab|stress|expenditure/i,a:'Under MCOB 11.6.18R, the lender must stress-test affordability. The broker should capture comprehensive expenditure data including: existing debts, childcare, school fees, maintenance obligations, and general living costs. ONS benchmarks are used as a minimum by many lenders. Document total committed expenditure vs net disposable income.'},
+ {q:/credit|adverse|ccj|default/i,a:'Full credit disclosure is essential. Lenders will hard-search via Experian/Equifax/TransUnion. Undisclosed adverse credit discovered at application wastes time and damages the client relationship. Common adverse markers: CCJs (satisfied or not, <6 years), defaults, IVAs, bankruptcy (discharged or not), missed payments, and payday loans.'},
+ {q:/demand|need|mcob 4/i,a:'MCOB 4.7A requires the adviser to assess the client\'s demands and needs before making a recommendation. Key areas: type of mortgage (purchase/remortgage/product switch), loan amount, term, repayment type, and priorities (rate vs certainty vs flexibility vs portability). Document these before sourcing.'},
+ {q:/document|passport|payslip|evidence/i,a:'Standard lender requirements: ID (passport/driving licence), address proof (utility bill/bank statement <3 months), income evidence (payslips ×3 / P60 / SA302 / accountant\'s accounts), bank statements ×3, deposit evidence, current mortgage statement (remortgage), property details, and EPC. Hash all documents for audit trail integrity.'},
+ {q:/pep|sanction/i,a:'PEP (Politically Exposed Person) status requires enhanced due diligence under MLR 2017. Sanctions screening must be conducted against the HM Treasury consolidated list. A sanctions match requires immediate reporting to the NCA and must not proceed. PEP status does not prohibit the transaction but requires enhanced scrutiny of source of funds.'},
+ {q:/retention|record|7 year/i,a:'FCA SYSC requires firms to retain all client records, advice records, and transaction records for a minimum of 7 years from the end of the business relationship. This includes the fact-find, suitability report, correspondence, complaints, and audit trail. FallMortgageOnboard stores everything in IndexedDB with JSON export for backup.'},
 ];
 function askT0(q){for(const r of T0_RULES){if(r.q.test(q))return {answer:r.a,source:'T0 · MCOB/MLR/FG21 rules'};}return null;}
 async function askT3(q){
-  const keys=[{k:state.settings.anthropicKey,name:'Anthropic',url:'https://api.anthropic.com/v1/messages',body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:800,messages:[{role:'user',content:'You are a UK mortgage regulation expert. Answer concisely.\n\n'+q}]}),headers:{'x-api-key':'KEY','anthropic-version':'2023-06-01','content-type':'application/json'},parse:r=>r.content?.[0]?.text}];
-  for(const p of keys){if(!p.k)continue;try{const hdrs={};for(const[hk,hv]of Object.entries(p.headers))hdrs[hk]=hv.replace('KEY',p.k);const res=await fetch(p.url,{method:'POST',headers:hdrs,body:p.body});if(!res.ok)continue;const json=await res.json();const text=p.parse(json);if(text)return {answer:text,source:'T3 · '+p.name};}catch(e){}}return null;
+ const keys=[{k:state.settings.anthropicKey,name:'Anthropic',url:'https://api.anthropic.com/v1/messages',body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:800,messages:[{role:'user',content:'You are a UK mortgage regulation expert. Answer concisely.\n\n'+q}]}),headers:{'x-api-key':'KEY','anthropic-version':'2023-06-01','content-type':'application/json'},parse:r=>r.content?.[0]?.text}];
+ for(const p of keys){if(!p.k)continue;try{const hdrs={};for(const[hk,hv]of Object.entries(p.headers))hdrs[hk]=hv.replace('KEY',p.k);const res=await fetch(p.url,{method:'POST',headers:hdrs,body:p.body});if(!res.ok)continue;const json=await res.json();const text=p.parse(json);if(text)return {answer:text,source:'T3 · '+p.name};}catch(e){}}return null;
 }
 function renderHelp(v){
-  const msgs=state.ui.chat||[];
-  v.innerHTML=`<div class="section-h"><h2>Mortgage Onboarding Q & A</h2><div class="sub">T0 + T3 BYOK</div></div>
-    <p style="font-size:12px;color:var(--cream-dim);margin-bottom:14px">Ask about fact-finding, AML CDD, source of deposit, vulnerability, affordability, credit, demands & needs, document requirements, PEP/sanctions, record retention.</p>
-    <div class="card" style="max-width:780px">
-      <div class="chat" id="chatBox">${msgs.map(m=>`<div class="msg ${m.role}">${esc(m.text)}${m.source?`<div class="src">${esc(m.source)}</div>`:''}</div>`).join('')}</div>
-      <div class="chat-input"><input id="chatIn" placeholder="Ask…" onkeydown="if(event.key==='Enter')askQuestion()"><button class="btn primary" onclick="askQuestion()">Ask</button></div>
-    </div>`;
-  const box=$('#chatBox');if(box)box.scrollTop=box.scrollHeight;
+ const msgs=state.ui.chat||[];
+ v.innerHTML=`<div class="section-h"><h2>Mortgage Onboarding Q & A</h2><div class="sub">T0 + T3 BYOK</div></div>
+ <p style="font-size:12px;color:var(--cream-dim);margin-bottom:14px">Ask about fact-finding, AML CDD, source of deposit, vulnerability, affordability, credit, demands & needs, document requirements, PEP/sanctions, record retention.</p>
+ <div class="card" style="max-width:780px">
+ <div class="chat" id="chatBox">${msgs.map(m=>`<div class="msg ${m.role}">${esc(m.text)}${m.source?`<div class="src">${esc(m.source)}</div>`:''}</div>`).join('')}</div>
+ <div class="chat-input"><input id="chatIn" placeholder="Ask…" onkeydown="if(event.key==='Enter')askQuestion()"><button class="btn primary" onclick="askQuestion()">Ask</button></div>
+ </div>`;
+ const box=$('#chatBox');if(box)box.scrollTop=box.scrollHeight;
 }
 async function askQuestion(){
-  const inp=$('#chatIn');if(!inp)return;const q=inp.value.trim();if(!q)return;inp.value='';
-  if(!state.ui.chat)state.ui.chat=[];state.ui.chat.push({role:'user',text:q});render();
-  let r=askT0(q);if(!r)r=await askT3(q);
-  state.ui.chat.push(r?{role:'bot',text:r.answer,source:r.source}:{role:'bot',text:'No T0 match. Add a BYOK key in Settings for T3.',source:'system'});
-  persistUI();render();
+ const inp=$('#chatIn');if(!inp)return;const q=inp.value.trim();if(!q)return;inp.value='';
+ if(!state.ui.chat)state.ui.chat=[];state.ui.chat.push({role:'user',text:q});render();
+ let r=askT0(q);if(!r)r=await askT3(q);
+ state.ui.chat.push(r?{role:'bot',text:r.answer,source:r.source}:{role:'bot',text:'No T0 match. Add a BYOK key in Settings for T3.',source:'system'});
+ persistUI();render();
 }
 
 // MODALS
 function openModal(type){
-  const root=$('#modalRoot');
-  if(type==='settings'){
-    root.innerHTML=`<div class="modal-bg" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modal-h"><h3>Settings</h3><button class="modal-close" onclick="closeModal()">✕</button></div><div class="modal-b">
-      <div class="field"><label>Brand name</label><input id="sBrand" value="${esc(state.brandName)}"></div>
-      <div class="field"><label>Anthropic key</label><input id="sAnthro" type="password" value="${esc(state.settings.anthropicKey||'')}"></div>
-      <div class="field"><label>OpenAI key</label><input id="sOpenai" type="password" value="${esc(state.settings.openaiKey||'')}"></div>
-      <div style="margin:10px 0"><label style="font-size:12px"><input type="checkbox" id="sAudit" ${state.settings.auditChain?'checked':''}> Audit chain</label></div>
-      <div style="margin:10px 0"><label style="font-size:12px"><input type="checkbox" id="sBc" ${state.settings.autoBroadcast?'checked':''}> Auto-broadcast</label></div>
-      <div class="divider"></div>
-      <div style="display:flex;gap:8px"><button class="btn ghost sm" onclick="exportState()">Export</button><button class="btn ghost sm" onclick="importState()">Import</button><button class="btn danger sm" onclick="wipeState()">Wipe</button></div>
-      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px"><button class="btn primary" onclick="saveSettingsModal()">Save</button><button class="btn ghost" onclick="closeModal()">Cancel</button></div>
-    </div></div></div>`;
-  }else if(type==='addadviser'){
-    root.innerHTML=`<div class="modal-bg" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modal-h"><h3>Add Adviser</h3><button class="modal-close" onclick="closeModal()">✕</button></div><div class="modal-b">
-      <div class="row"><div class="field"><label>Name</label><input id="aaName"></div><div class="field"><label>FCA ref</label><input id="aaFca"></div></div>
-      <div class="row"><div class="field"><label>Qualification</label><input id="aaQual" value="CeMAP"></div><div class="field"><label>SM&CR role</label><input id="aaSmcr" value="CF1"></div></div>
-      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px"><button class="btn primary" onclick="saveNewAdviser()">Add</button><button class="btn ghost" onclick="closeModal()">Cancel</button></div>
-    </div></div></div>`;
-  }else if(type==='audit'){
-    const entries=state.audit.slice().reverse().slice(0,100);
-    root.innerHTML=`<div class="modal-bg" onclick="if(event.target===this)closeModal()"><div class="modal" style="max-width:900px"><div class="modal-h"><h3>Audit Chain · ${state.audit.length} entries</h3><div style="display:flex;gap:6px"><button class="btn sm ghost" onclick="verifyChain()">Verify</button><button class="btn sm ghost" onclick="exportAudit()">Export</button><button class="modal-close" onclick="closeModal()">✕</button></div></div><div class="modal-b">
-      ${entries.map(e=>`<div class="audit-entry"><span class="a-action">${esc(e.action)}</span> <span class="a-meta">${dateTime(e.ts)} · ${esc(e.clientId).slice(0,12)}</span>${e.reasoning?`<div class="a-reason">${esc(e.reasoning)}</div>`:''}</div>`).join('')}
-    </div></div></div>`;
-  }
+ const root=$('#modalRoot');
+ if(type==='settings'){
+ root.innerHTML=`<div class="modal-bg" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modal-h"><h3>Settings</h3><button class="modal-close" onclick="closeModal()">✕</button></div><div class="modal-b">
+ <div class="field"><label>Brand name</label><input id="sBrand" value="${esc(state.brandName)}"></div>
+ <div class="field"><label>Anthropic key</label><input id="sAnthro" type="password" value="${esc(state.settings.anthropicKey||'')}"></div>
+ <div class="field"><label>OpenAI key</label><input id="sOpenai" type="password" value="${esc(state.settings.openaiKey||'')}"></div>
+ <div style="margin:10px 0"><label style="font-size:12px"><input type="checkbox" id="sAudit" ${state.settings.auditChain?'checked':''}> Audit chain</label></div>
+ <div style="margin:10px 0"><label style="font-size:12px"><input type="checkbox" id="sBc" ${state.settings.autoBroadcast?'checked':''}> Auto-broadcast</label></div>
+ <div class="divider"></div>
+ <div style="display:flex;gap:8px"><button class="btn ghost sm" onclick="exportState()">Export</button><button class="btn ghost sm" onclick="importState()">Import</button><button class="btn danger sm" onclick="wipeState()">Wipe</button></div>
+ <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px"><button class="btn primary" onclick="saveSettingsModal()">Save</button><button class="btn ghost" onclick="closeModal()">Cancel</button></div>
+ </div></div></div>`;
+ }else if(type==='addadviser'){
+ root.innerHTML=`<div class="modal-bg" onclick="if(event.target===this)closeModal()"><div class="modal"><div class="modal-h"><h3>Add Adviser</h3><button class="modal-close" onclick="closeModal()">✕</button></div><div class="modal-b">
+ <div class="row"><div class="field"><label>Name</label><input id="aaName"></div><div class="field"><label>FCA ref</label><input id="aaFca"></div></div>
+ <div class="row"><div class="field"><label>Qualification</label><input id="aaQual" value="CeMAP"></div><div class="field"><label>SM&CR role</label><input id="aaSmcr" value="CF1"></div></div>
+ <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:14px"><button class="btn primary" onclick="saveNewAdviser()">Add</button><button class="btn ghost" onclick="closeModal()">Cancel</button></div>
+ </div></div></div>`;
+ }else if(type==='audit'){
+ const entries=state.audit.slice().reverse().slice(0,100);
+ root.innerHTML=`<div class="modal-bg" onclick="if(event.target===this)closeModal()"><div class="modal" style="max-width:900px"><div class="modal-h"><h3>Audit Chain · ${state.audit.length} entries</h3><div style="display:flex;gap:6px"><button class="btn sm ghost" onclick="verifyChain()">Verify</button><button class="btn sm ghost" onclick="exportAudit()">Export</button><button class="modal-close" onclick="closeModal()">✕</button></div></div><div class="modal-b">
+ ${entries.map(e=>`<div class="audit-entry"><span class="a-action">${esc(e.action)}</span> <span class="a-meta">${dateTime(e.ts)} · ${esc(e.clientId).slice(0,12)}</span>${e.reasoning?`<div class="a-reason">${esc(e.reasoning)}</div>`:''}</div>`).join('')}
+ </div></div></div>`;
+ }
 }
 function closeModal(){$('#modalRoot').innerHTML='';}
 
 async function saveNewAdviser(){
-  const a={id:uid('adv'),firmId:state.firm?state.firm.id:'',ts:now(),updatedAt:now(),name:$('#aaName').value.trim(),fcaRefNo:$('#aaFca').value.trim(),qualification:$('#aaQual').value.trim(),smcrRole:$('#aaSmcr').value.trim()};
-  if(!a.name){toast('Name required');return;}
-  await saveAdviser(a,'adviser added');
-  if(!state.ui.activeAdviserId)state.ui.activeAdviserId=a.id;
-  closeModal();toast('Adviser added');render();
+ const a={id:uid('adv'),firmId:state.firm?state.firm.id:'',ts:now(),updatedAt:now(),name:$('#aaName').value.trim(),fcaRefNo:$('#aaFca').value.trim(),qualification:$('#aaQual').value.trim(),smcrRole:$('#aaSmcr').value.trim()};
+ if(!a.name){toast('Name required');return;}
+ await saveAdviser(a,'adviser added');
+ if(!state.ui.activeAdviserId)state.ui.activeAdviserId=a.id;
+ closeModal();toast('Adviser added');render();
 }
 function saveSettingsModal(){
-  state.brandName=$('#sBrand').value.trim()||'FallMortgageOnboard';
-  state.settings.anthropicKey=$('#sAnthro').value.trim();state.settings.openaiKey=$('#sOpenai').value.trim();
-  state.settings.auditChain=$('#sAudit').checked;state.settings.autoBroadcast=$('#sBc').checked;
-  $('#tierBadge').textContent=state.settings.anthropicKey||state.settings.openaiKey?'T3':'T0';
-  persistUI();closeModal();toast('Settings saved');render();
+ state.brandName=$('#sBrand').value.trim()||'FallMortgageOnboard';
+ state.settings.anthropicKey=$('#sAnthro').value.trim();state.settings.openaiKey=$('#sOpenai').value.trim();
+ state.settings.auditChain=$('#sAudit').checked;state.settings.autoBroadcast=$('#sBc').checked;
+ $('#tierBadge').textContent=state.settings.anthropicKey||state.settings.openaiKey?'T3':'T0';
+ persistUI();closeModal();toast('Settings saved');render();
 }
 
 async function verifyChain(){
-  let ok=true;
-  for(let i=0;i<state.audit.length;i++){const e=state.audit[i];const ph=i>0?state.audit[i-1].docHash:'';if(e.prevHash!==ph){ok=false;break;}const exp=await sha256(JSON.stringify({i:e.i,ts:e.ts,action:e.action,clientId:e.clientId,prevHash:e.prevHash,payload:e.payload}));if(e.docHash!==exp){ok=false;break;}}
-  toast(ok?'Chain verified ✓':'Chain broken');
+ let ok=true;
+ for(let i=0;i<state.audit.length;i++){const e=state.audit[i];const ph=i>0?state.audit[i-1].docHash:'';if(e.prevHash!==ph){ok=false;break;}const exp=await sha256(JSON.stringify({i:e.i,ts:e.ts,action:e.action,clientId:e.clientId,prevHash:e.prevHash,payload:e.payload}));if(e.docHash!==exp){ok=false;break;}}
+ toast(ok?'Chain verified ✓':'Chain broken');
 }
 function exportAudit(){const b=new Blob([JSON.stringify(state.audit,null,2)],{type:'application/json'});const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download='fallmortgageonboard-audit.json';a.click();URL.revokeObjectURL(u);toast('Exported');}
 function exportState(){const p={tool:TOOLNAME,version:VERSION,exportedAt:now(),firm:state.firm,advisers:state.advisers,clients:state.clients};const b=new Blob([JSON.stringify(p,null,2)],{type:'application/json'});const u=URL.createObjectURL(b);const a=document.createElement('a');a.href=u;a.download='fallmortgageonboard-export.json';a.click();URL.revokeObjectURL(u);toast('Exported');}
@@ -983,39 +983,39 @@ async function wipeState(){if(!confirm('Wipe ALL data?'))return;if(!confirm('Sur
 
 // DEMO SEED
 async function seedDemoIfEmpty(){
-  if(state.clients.length||state.advisers.length||state.firm)return;
-  const firmId=uid('firm');
-  const firm={id:firmId,name:'Demo Mortgages Ltd',fcaRefNo:'789012',address:'10 Demo Lane, London SW1A 1AA',email:'info@demomortgages.co.uk',phone:'020 7987 6543',network:'',piInsurer:'AIG',updatedAt:now(),isDemo:true};
-  state.firm=firm;await idbPut('firms',firm);
-  const advId=uid('adv');
-  const adv={id:advId,firmId,name:'Demo Adviser',fcaRefNo:'ADV002',qualification:'CeMAP',smcrRole:'CF1',updatedAt:now(),isDemo:true};
-  state.advisers.push(adv);state.ui.activeAdviserId=advId;await idbPut('advisers',adv);
-  const c=newClientRec();c.isDemo=true;c.adviserId=advId;c.applicationType='joint';c.status='in-progress';
-  c.applicant1={title:'Mr',firstName:'James',lastName:'Patterson',dob:'1992-03-15',nationality:'GB',niNumber:'QQ 12 34 56 A',maritalStatus:'married'};
-  c.applicant2={title:'Mrs',firstName:'Sarah',lastName:'Patterson',dob:'1993-07-22',nationality:'GB',niNumber:'QQ 65 43 21 B',maritalStatus:'married'};
-  c.contact={address:'42 Oak Road',city:'Manchester',postcode:'M20 3AB',phone:'07700 900456',email:'james.patterson@email.co.uk',yearsAtAddress:4,previousAddresses:[]};
-  c.property={address:'15 Elm Avenue, Manchester',postcode:'M21 9QR',type:'semi-detached',tenure:'freehold',value:330000,source:'purchase'};
-  c.employment1={type:'employed',employer:'Northern Tech Ltd',jobTitle:'Software Engineer',startDate:'2018-06-01',basicSalary:52000,otherIncome:3000,otherIncomeSource:'Annual bonus',selfEmployedYears:0};
-  c.employment2={type:'employed',employer:'Manchester NHS Trust',jobTitle:'Physiotherapist',basicSalary:38000,otherIncome:0,startDate:'2019-01-15'};
-  c.expenditure={mortgage:0,rent:950,loans:150,creditCards:80,childcare:600,schoolFees:0,maintenance:0,travel:200,utilities:180,insurance:90,other:150,dependants:1,dependantAges:'2'};
-  c.demands={mortgageType:'purchase',loanAmount:280000,term:30,repayment:'capital-and-interest',priorityRate:false,priorityCertainty:true,priorityFlexibility:true,priorityPortability:false,additionalNeeds:'Planning to have a second child in 2-3 years. Want option to overpay without penalty.'};
-  c.credit={adverse:false,ccjs:false,defaults:false,iva:false,bankruptcy:false,missedPayments:false,paydayLoans:false,notes:'Clean credit history. Both applicants on electoral roll.'};
-  c.aml={idVerified:true,addressVerified:true,sourceOfDeposit:'savings',depositAmount:50000,giftLetter:false,giftorName:'',giftorRelationship:'',sanctionsChecked:true,sanctionsMatch:false,pepStatus:false,riskGrade:'low',riskReasons:[],cddComplete:true,notes:''};
-  c.vulnerable={identified:false,category:'',details:'',adjustments:'',communicationPrefs:'',reviewDate:''};
-  state.clients.push(c);await idbPut('clients',c);
-  await auditLog('demo.seeded',{reasoning:'first boot',payload:{firmId,advId,clientId:c.id}});
-  await persistUI();
+ if(state.clients.length||state.advisers.length||state.firm)return;
+ const firmId=uid('firm');
+ const firm={id:firmId,name:'Demo Mortgages Ltd',fcaRefNo:'789012',address:'10 Demo Lane, London SW1A 1AA',email:'info@demomortgages.co.uk',phone:'020 7987 6543',network:'',piInsurer:'AIG',updatedAt:now(),isDemo:true};
+ state.firm=firm;await idbPut('firms',firm);
+ const advId=uid('adv');
+ const adv={id:advId,firmId,name:'Demo Adviser',fcaRefNo:'ADV002',qualification:'CeMAP',smcrRole:'CF1',updatedAt:now(),isDemo:true};
+ state.advisers.push(adv);state.ui.activeAdviserId=advId;await idbPut('advisers',adv);
+ const c=newClientRec();c.isDemo=true;c.adviserId=advId;c.applicationType='joint';c.status='in-progress';
+ c.applicant1={title:'Mr',firstName:'James',lastName:'Patterson',dob:'1992-03-15',nationality:'GB',niNumber:'QQ 12 34 56 A',maritalStatus:'married'};
+ c.applicant2={title:'Mrs',firstName:'Sarah',lastName:'Patterson',dob:'1993-07-22',nationality:'GB',niNumber:'QQ 65 43 21 B',maritalStatus:'married'};
+ c.contact={address:'42 Oak Road',city:'Manchester',postcode:'M20 3AB',phone:'07700 900456',email:'james.patterson@email.co.uk',yearsAtAddress:4,previousAddresses:[]};
+ c.property={address:'15 Elm Avenue, Manchester',postcode:'M21 9QR',type:'semi-detached',tenure:'freehold',value:330000,source:'purchase'};
+ c.employment1={type:'employed',employer:'Northern Tech Ltd',jobTitle:'Software Engineer',startDate:'2018-06-01',basicSalary:52000,otherIncome:3000,otherIncomeSource:'Annual bonus',selfEmployedYears:0};
+ c.employment2={type:'employed',employer:'Manchester NHS Trust',jobTitle:'Physiotherapist',basicSalary:38000,otherIncome:0,startDate:'2019-01-15'};
+ c.expenditure={mortgage:0,rent:950,loans:150,creditCards:80,childcare:600,schoolFees:0,maintenance:0,travel:200,utilities:180,insurance:90,other:150,dependants:1,dependantAges:'2'};
+ c.demands={mortgageType:'purchase',loanAmount:280000,term:30,repayment:'capital-and-interest',priorityRate:false,priorityCertainty:true,priorityFlexibility:true,priorityPortability:false,additionalNeeds:'Planning to have a second child in 2-3 years. Want option to overpay without penalty.'};
+ c.credit={adverse:false,ccjs:false,defaults:false,iva:false,bankruptcy:false,missedPayments:false,paydayLoans:false,notes:'Clean credit history. Both applicants on electoral roll.'};
+ c.aml={idVerified:true,addressVerified:true,sourceOfDeposit:'savings',depositAmount:50000,giftLetter:false,giftorName:'',giftorRelationship:'',sanctionsChecked:true,sanctionsMatch:false,pepStatus:false,riskGrade:'low',riskReasons:[],cddComplete:true,notes:''};
+ c.vulnerable={identified:false,category:'',details:'',adjustments:'',communicationPrefs:'',reviewDate:''};
+ state.clients.push(c);await idbPut('clients',c);
+ await auditLog('demo.seeded',{reasoning:'first boot',payload:{firmId,advId,clientId:c.id}});
+ await persistUI();
 }
 
 // BOOT
 (async function boot(){
-  try{
-    await openDB();await loadAll();await seedDemoIfEmpty();initMesh();
-    $('#tierBadge').textContent=state.settings.anthropicKey||state.settings.openaiKey?'T3':'T0';
-    render();
-  }catch(e){
-    console.error('[fallmortgageonboard] boot error:',e);
-    document.getElementById('view').innerHTML='<div class="empty"><div class="big">Boot error</div><div class="small">'+esc(e.message)+'</div></div>';
-  }
+ try{
+ await openDB();await loadAll();await seedDemoIfEmpty();initMesh();
+ $('#tierBadge').textContent=state.settings.anthropicKey||state.settings.openaiKey?'T3':'T0';
+ render();
+ }catch(e){
+ console.error('[fallmortgageonboard] boot error:',e);
+ document.getElementById('view').innerHTML='<div class="empty"><div class="big">Boot error</div><div class="small">'+esc(e.message)+'</div></div>';
+ }
 })();
 

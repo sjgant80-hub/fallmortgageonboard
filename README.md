@@ -41,7 +41,7 @@ You're a mortgage broker onboarding a new client. You need a fact-find, AML CDD,
 
 Automatic risk grading based on: PEP status, sanctions match, high-risk nationality, source of deposit, gift without letter, deposit amount. Three grades: low / medium / high. Enhanced due diligence flags surface on the dashboard.
 
-### Audit chain (Mansoor P3)
+### Audit chain (P3)
 
 Every action appends a SHA-256 chained entry. Verify chain integrity from the Audit modal. Export separately for compliance records.
 
