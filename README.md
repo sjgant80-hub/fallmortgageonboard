@@ -30,7 +30,7 @@ You're a mortgage broker onboarding a new client. You need a fact-find, AML CDD,
 
 ### How it works
 
-1. Open the URL — demo data (James & Sarah Patterson, joint purchase) loads on first visit
+1. Open the URL — demo data (James & Sarah Patterson, joint Access) loads on first visit
 2. **Firm** tab — set your firm name, FCA ref, network, PI insurer
 3. **+ Adviser** — add yourself with CeMAP qualification and FCA ref
 4. **+ Client** — 11-step wizard guides you through the full fact-find

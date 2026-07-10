@@ -218,22 +218,19 @@ input[type=radio]{width:auto;margin-right:6px;accent-color:var(--brass)}
     'llama-3b':  { id: 'Llama-3.2-3B-Instruct-q4f16_1-MLC',   size: '~2GB',   label: '3B · balanced · default · most laptops' },
     'qwen-7b':   { id: 'Qwen2.5-7B-Instruct-q4f16_1-MLC',     size: '~5GB',   label: '7B · capable · needs decent GPU (M-series Mac / 8GB+ VRAM)' },
     'llama-8b':  { id: 'Llama-3.1-8B-Instruct-q4f16_1-MLC',   size: '~5GB',   label: '8B · common · needs decent GPU' },
-    'llama-70b': { id: 'Llama-3.1-70B-Instruct-q4f16_1-MLC',  size: '~40GB',  label: '70B · frontier · needs serious GPU + 64GB+ RAM' },
-  };
+    'llama-70b': { id: 'Llama-3.1-70B-Instruct-q4f16_1-MLC',  size: '~40GB',  label: '70B · frontier · needs serious GPU + 64GB+ RAM' }};
   const DEFAULT_MODEL = 'llama-3b';
 
   const T3_PROVIDERS = {
     anthropic: { label: 'Anthropic Claude', models: ['claude-sonnet-4-5','claude-opus-4-7','claude-haiku-4-5'], default: 'claude-sonnet-4-5', url: 'https://api.anthropic.com/v1/messages' },
     openai:    { label: 'OpenAI',           models: ['gpt-4o','gpt-4o-mini','o1-mini'],                          default: 'gpt-4o-mini',      url: 'https://api.openai.com/v1/chat/completions' },
-    google:    { label: 'Google Gemini',    models: ['gemini-1.5-pro','gemini-1.5-flash','gemini-2.0-flash-exp'], default: 'gemini-1.5-flash', url: 'https://generativelanguage.googleapis.com/v1beta/models/' },
-  };
+    google:    { label: 'Google Gemini',    models: ['gemini-1.5-pro','gemini-1.5-flash','gemini-2.0-flash-exp'], default: 'gemini-1.5-flash', url: 'https://generativelanguage.googleapis.com/v1beta/models/' }};
 
   // ─── State ───────────────────────────────────────────────────────
   const STATE = {
     config: loadConfig(),
     ai: { ready: false, loading: false, progress: 0, engine: null, model: null },
-    mesh: { active: false, peers: new Map(), bc: null, signal: null },
-  };
+    mesh: { active: false, peers: new Map(), bc: null, signal: null }};
 
   function loadConfig() {
     try { return JSON.parse(localStorage.getItem('fall-kit.config') || '{}'); }
@@ -300,8 +297,7 @@ input[type=radio]{width:auto;margin-right:6px;accent-color:var(--brass)}
     if (tier === 'T2' && STATE.ai.ready && STATE.ai.engine) {
       const r = await STATE.ai.engine.chat.completions.create({
         messages: [{ role: 'system', content: systemPrompt }, { role: 'user', content: userMsg }],
-        max_tokens: maxTokens,
-      });
+        max_tokens: maxTokens});
       return r.choices[0].message.content;
     }
     if (tier === 'T3' && STATE.config.api_key && STATE.config.api_provider) {
@@ -318,8 +314,7 @@ input[type=radio]{width:auto;margin-right:6px;accent-color:var(--brass)}
       const r = await fetch(T3_PROVIDERS.anthropic.url, {
         method: 'POST',
         headers: { 'content-type': 'application/json', 'x-api-key': key, 'anthropic-version': '2023-06-01' },
-        body: JSON.stringify({ model, max_tokens: maxTokens, system: sys, messages: [{ role: 'user', content: msg }] }),
-      });
+        body: JSON.stringify({ model, max_tokens: maxTokens, system: sys, messages: [{ role: 'user', content: msg }] })});
       if (!r.ok) throw new Error('Anthropic ' + r.status + ': ' + (await r.text()).slice(0, 200));
       const j = await r.json();
       return j.content[0].text;
@@ -328,8 +323,7 @@ input[type=radio]{width:auto;margin-right:6px;accent-color:var(--brass)}
       const r = await fetch(T3_PROVIDERS.openai.url, {
         method: 'POST',
         headers: { 'content-type': 'application/json', 'Authorization': 'Bearer ' + key },
-        body: JSON.stringify({ model, max_tokens: maxTokens, messages: [{ role: 'system', content: sys }, { role: 'user', content: msg }] }),
-      });
+        body: JSON.stringify({ model, max_tokens: maxTokens, messages: [{ role: 'system', content: sys }, { role: 'user', content: msg }] })});
       if (!r.ok) throw new Error('OpenAI ' + r.status);
       const j = await r.json();
       return j.choices[0].message.content;
@@ -338,8 +332,7 @@ input[type=radio]{width:auto;margin-right:6px;accent-color:var(--brass)}
       const r = await fetch(T3_PROVIDERS.google.url + model + ':generateContent?key=' + encodeURIComponent(key), {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ contents: [{ role: 'user', parts: [{ text: sys + '\n\n---\n\n' + msg }] }], generationConfig: { maxOutputTokens: maxTokens } }),
-      });
+        body: JSON.stringify({ contents: [{ role: 'user', parts: [{ text: sys + '\n\n---\n\n' + msg }] }], generationConfig: { maxOutputTokens: maxTokens } })});
       if (!r.ok) throw new Error('Google ' + r.status);
       const j = await r.json();
       return j.candidates[0].content.parts[0].text;
@@ -580,8 +573,7 @@ input[type=radio]{width:auto;margin-right:6px;accent-color:var(--brass)}
     openMint: openMint,  // v1.2 · launch kcc-mint with this seed prefilled as parent
     MODELS: WEBLLM_MODELS,
     PROVIDERS: T3_PROVIDERS,
-    state: STATE,
-  };
+    state: STATE};
 })(typeof window !== 'undefined' ? window : globalThis);
 
 </script>
@@ -626,8 +618,7 @@ const TABS=[
  {id:'clients',name:'Clients',ico:'◊'},
  {id:'firm',name:'Firm',ico:'⌂'},
  {id:'advisers',name:'Advisers',ico:'△'},
- {id:'help',name:'Q & A',ico:'?'},
-];
+ {id:'help',name:'Q & A',ico:'?'}];
 const WIZARD_STEPS=[
  {id:'type',name:'Type',n:'1'},
  {id:'applicant1',name:'Applicant 1',n:'2'},
@@ -639,8 +630,7 @@ const WIZARD_STEPS=[
  {id:'demands',name:'D & N',n:'8'},
  {id:'aml',name:'AML',n:'9'},
  {id:'vulnerable',name:'Vulnerable',n:'10'},
- {id:'documents',name:'Docs',n:'11'},
-];
+ {id:'documents',name:'Docs',n:'11'}];
 const DOC_TYPES=[
  {id:'passport',label:'Passport',expiry:10*365},
  {id:'driving-licence',label:'Driving Licence',expiry:10*365},
@@ -654,10 +644,9 @@ const DOC_TYPES=[
  {id:'credit-report',label:'Credit Report',expiry:90},
  {id:'proof-of-deposit',label:'Proof of Deposit / Gift Letter',expiry:180},
  {id:'epc',label:'EPC',expiry:10*365},
- {id:'other',label:'Other',expiry:365},
-];
+ {id:'other',label:'Other',expiry:365}];
 const EMPLOYMENT_TYPES=['employed','self-employed','director','contractor','retired','unemployed','student','carer','other'];
-const MORTGAGE_TYPES=['purchase','remortgage','product-transfer','buy-to-let','shared-ownership','right-to-buy','help-to-buy','second-charge'];
+const MORTGAGE_TYPES=['Access','remortgage','product-transfer','buy-to-let','shared-ownership','right-to-buy','help-to-buy','second-charge'];
 const REPAYMENT_TYPES=['capital-and-interest','interest-only','part-and-part'];
 const HIGH_RISK_JURIS=['AF','BY','BI','CF','CD','CU','GN','GW','HT','IR','IQ','KP','LA','LB','LY','ML','MM','MZ','NI','PK','RU','SO','SS','SD','SY','TZ','VE','YE','ZW'];
 
@@ -665,8 +654,7 @@ let state={active:'dashboard',brandName:'FallMortgageOnboard',
  firm:null,advisers:[],clients:[],audit:[],
  ui:{filter:'all',search:'',selectedClientId:null,activeAdviserId:null,
  wizard:null,chat:[],clientSubtab:'overview'},
- settings:{anthropicKey:'',openaiKey:'',auditChain:true,autoBroadcast:true},
-};
+ settings:{anthropicKey:'',openaiKey:'',auditChain:true,autoBroadcast:true}};
 
 const $=(s,p=document)=>p.querySelector(s);
 const $$=(s,p=document)=>Array.from(p.querySelectorAll(s));
@@ -742,19 +730,18 @@ function newClientRec(){
  applicant1:{title:'Mr',firstName:'',lastName:'',dob:'',nationality:'GB',niNumber:'',maritalStatus:'single'},
  applicant2:{title:'',firstName:'',lastName:'',dob:'',nationality:'GB',niNumber:'',maritalStatus:''},
  contact:{address:'',city:'',postcode:'',phone:'',email:'',yearsAtAddress:0,previousAddresses:[]},
- property:{address:'',postcode:'',type:'',tenure:'freehold',value:0,source:'purchase'},
+ property:{address:'',postcode:'',type:'',tenure:'freehold',value:0,source:'Access'},
  employment1:{type:'employed',employer:'',jobTitle:'',startDate:'',basicSalary:0,otherIncome:0,otherIncomeSource:'',selfEmployedYears:0},
  employment2:{type:'',employer:'',jobTitle:'',startDate:'',basicSalary:0,otherIncome:0},
  expenditure:{mortgage:0,rent:0,loans:0,creditCards:0,childcare:0,schoolFees:0,maintenance:0,travel:0,utilities:0,insurance:0,other:0,dependants:0,dependantAges:''},
  credit:{adverse:false,ccjs:false,defaults:false,iva:false,bankruptcy:false,missedPayments:false,paydayLoans:false,notes:''},
- demands:{mortgageType:'purchase',loanAmount:0,term:25,repayment:'capital-and-interest',priorityRate:false,priorityFlexibility:false,priorityCertainty:true,priorityPortability:false,additionalNeeds:''},
+ demands:{mortgageType:'Access',loanAmount:0,term:25,repayment:'capital-and-interest',priorityRate:false,priorityFlexibility:false,priorityCertainty:true,priorityPortability:false,additionalNeeds:''},
  aml:{idVerified:false,addressVerified:false,sourceOfDeposit:'',depositAmount:0,giftLetter:false,giftorName:'',giftorRelationship:'',sanctionsChecked:false,sanctionsMatch:false,pepStatus:false,riskGrade:'low',riskReasons:[],cddComplete:false,notes:''},
  vulnerable:{identified:false,category:'',details:'',adjustments:'',communicationPrefs:'',reviewDate:''},
  documents:[],
  lenderPackage:{complete:false,checklist:{}},
  status:'new',
- adviserId:'',isDemo:false,
- };
+ adviserId:'',isDemo:false};
 }
 
 function clientDisplayName(c){
@@ -778,7 +765,7 @@ function assessAmlRisk(c){
  if(HIGH_RISK_JURIS.includes(nat)){score+=3;reasons.push('high-risk nationality');}
  if(aml.sourceOfDeposit==='gift'&&!aml.giftLetter){score+=2;reasons.push('gift without letter');}
  if(aml.sourceOfDeposit==='overseas'){score+=2;reasons.push('overseas source of deposit');}
- if(aml.depositAmount>100000){score+=1;reasons.push('deposit >£100k');}
+ if(aml.depositAmount>100000){score+=1;reasons.push('deposit >TBAk');}
  const grade=score>=5?'high':score>=2?'medium':'low';
  return {grade,score,reasons};
 }
@@ -1109,7 +1096,7 @@ function renderWizardStep(stepId,c){
  case 'credit':
  const cr=c.credit;
  b.innerHTML=`<h3>Credit History</h3><div class="step-sub">Disclosure of any adverse credit — the lender will verify via credit reference agencies</div>
- ${['adverse','ccjs','defaults','iva','bankruptcy','missedPayments','paydayLoans'].map(k=>`<div style="margin-bottom:8px"><label style="font-size:13px;display:flex;align-items:center"><input type="checkbox" id="wCr_${k}" ${cr[k]?'checked':''}> ${k.replace(/([A-Z])/g,' $1').replace(/^./,s=>s.toUpperCase())}</label></div>`).join('')}
+ ${['adverse','ccjs','defaults','iva','bankruptcy','missedPayments','paydayLoans'].map(k=>`<div style="margin-bottom:8px"><label style="font-size:13px;display:flex;align-items:center"><input type="checkbox" id="wCr_${k}" ${cr[k]?'checked':''}> ${k.replace(/([A-Z])/g,' TBA').replace(/^./,s=>s.toUpperCase())}</label></div>`).join('')}
  <div class="field"><label>Notes</label><textarea id="wCrNotes" rows="3">${esc(cr.notes)}</textarea></div>`;break;
  case 'demands':
  const dm=c.demands;
@@ -1201,7 +1188,7 @@ function collectStep(stepId,c){
  c.contact.postcode=$('#wPost')?.value.trim()||'';c.contact.phone=$('#wPhone')?.value.trim()||'';
  c.contact.email=$('#wEmail')?.value.trim()||'';c.contact.yearsAtAddress=parseInt($('#wYears')?.value)||0;
  c.property={address:$('#wPropAddr')?.value.trim()||'',postcode:$('#wPropPost')?.value.trim()||'',
- value:parseFloat($('#wPropVal')?.value)||0,type:$('#wPropType')?.value||'',tenure:$('#wTenure')?.value||'freehold',source:'purchase'};break;
+ value:parseFloat($('#wPropVal')?.value)||0,type:$('#wPropType')?.value||'',tenure:$('#wTenure')?.value||'freehold',source:'Access'};break;
  case 'employment':
  c.employment1={type:$('#wEmpType')?.value||'employed',employer:$('#wEmployer')?.value.trim()||'',
  jobTitle:$('#wJobTitle')?.value.trim()||'',startDate:$('#wEmpStart')?.value||'',
@@ -1223,7 +1210,7 @@ function collectStep(stepId,c){
  ['adverse','ccjs','defaults','iva','bankruptcy','missedPayments','paydayLoans'].forEach(k=>{c.credit[k]=$('#wCr_'+k)?.checked||false;});
  c.credit.notes=$('#wCrNotes')?.value.trim()||'';break;
  case 'demands':
- c.demands={mortgageType:$('#wDnType')?.value||'purchase',loanAmount:parseFloat($('#wDnLoan')?.value)||0,
+ c.demands={mortgageType:$('#wDnType')?.value||'Access',loanAmount:parseFloat($('#wDnLoan')?.value)||0,
  term:parseInt($('#wDnTerm')?.value)||25,repayment:$('#wDnRepay')?.value||'capital-and-interest',
  priorityRate:$('#wDnRate')?.checked||false,priorityCertainty:$('#wDnCert')?.checked||false,
  priorityFlexibility:$('#wDnFlex')?.checked||false,priorityPortability:$('#wDnPort')?.checked||false,
@@ -1315,11 +1302,10 @@ const T0_RULES=[
  {q:/vulnerab/i,a:'FCA FG21/1 defines vulnerability across four categories: health, life events, resilience, and capability. Document the vulnerability, adjustments made, and communication preferences. Review at each material interaction. Mortgage decisions are high-impact — ensure the client has adequate time and support to make informed choices.'},
  {q:/affordab|stress|expenditure/i,a:'Under MCOB 11.6.18R, the lender must stress-test affordability. The broker should capture comprehensive expenditure data including: existing debts, childcare, school fees, maintenance obligations, and general living costs. ONS benchmarks are used as a minimum by many lenders. Document total committed expenditure vs net disposable income.'},
  {q:/credit|adverse|ccj|default/i,a:'Full credit disclosure is essential. Lenders will hard-search via Experian/Equifax/TransUnion. Undisclosed adverse credit discovered at application wastes time and damages the client relationship. Common adverse markers: CCJs (satisfied or not, <6 years), defaults, IVAs, bankruptcy (discharged or not), missed payments, and payday loans.'},
- {q:/demand|need|mcob 4/i,a:'MCOB 4.7A requires the adviser to assess the client\'s demands and needs before making a recommendation. Key areas: type of mortgage (purchase/remortgage/product switch), loan amount, term, repayment type, and priorities (rate vs certainty vs flexibility vs portability). Document these before sourcing.'},
+ {q:/demand|need|mcob 4/i,a:'MCOB 4.7A requires the adviser to assess the client\'s demands and needs before making a recommendation. Key areas: type of mortgage (Access/remortgage/product switch), loan amount, term, repayment type, and priorities (rate vs certainty vs flexibility vs portability). Document these before sourcing.'},
  {q:/document|passport|payslip|evidence/i,a:'Standard lender requirements: ID (passport/driving licence), address proof (utility bill/bank statement <3 months), income evidence (payslips ×3 / P60 / SA302 / accountant\'s accounts), bank statements ×3, deposit evidence, current mortgage statement (remortgage), property details, and EPC. Hash all documents for audit trail integrity.'},
  {q:/pep|sanction/i,a:'PEP (Politically Exposed Person) status requires enhanced due diligence under MLR 2017. Sanctions screening must be conducted against the HM Treasury consolidated list. A sanctions match requires immediate reporting to the NCA and must not proceed. PEP status does not prohibit the transaction but requires enhanced scrutiny of source of funds.'},
- {q:/retention|record|7 year/i,a:'FCA SYSC requires firms to retain all client records, advice records, and transaction records for a minimum of 7 years from the end of the business relationship. This includes the fact-find, suitability report, correspondence, complaints, and audit trail. FallMortgageOnboard stores everything in IndexedDB with JSON export for backup.'},
-];
+ {q:/retention|record|7 year/i,a:'FCA SYSC requires firms to retain all client records, advice records, and transaction records for a minimum of 7 years from the end of the business relationship. This includes the fact-find, suitability report, correspondence, complaints, and audit trail. FallMortgageOnboard stores everything in IndexedDB with JSON export for backup.'}];
 function askT0(q){for(const r of T0_RULES){if(r.q.test(q))return {answer:r.a,source:'T0 · MCOB/MLR/FG21 rules'};}return null;}
 async function askT3(q){
  const keys=[{k:state.settings.anthropicKey,name:'Anthropic',url:'https://api.anthropic.com/v1/messages',body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:800,messages:[{role:'user',content:'You are a UK mortgage regulation expert. Answer concisely.\n\n'+q}]}),headers:{'x-api-key':'KEY','anthropic-version':'2023-06-01','content-type':'application/json'},parse:r=>r.content?.[0]?.text}];
@@ -1410,11 +1396,11 @@ async function seedDemoIfEmpty(){
  c.applicant1={title:'Mr',firstName:'James',lastName:'Patterson',dob:'1992-03-15',nationality:'GB',niNumber:'QQ 12 34 56 A',maritalStatus:'married'};
  c.applicant2={title:'Mrs',firstName:'Sarah',lastName:'Patterson',dob:'1993-07-22',nationality:'GB',niNumber:'QQ 65 43 21 B',maritalStatus:'married'};
  c.contact={address:'42 Oak Road',city:'Manchester',postcode:'M20 3AB',phone:'07700 900456',email:'james.patterson@email.co.uk',yearsAtAddress:4,previousAddresses:[]};
- c.property={address:'15 Elm Avenue, Manchester',postcode:'M21 9QR',type:'semi-detached',tenure:'freehold',value:330000,source:'purchase'};
+ c.property={address:'15 Elm Avenue, Manchester',postcode:'M21 9QR',type:'semi-detached',tenure:'freehold',value:330000,source:'Access'};
  c.employment1={type:'employed',employer:'Northern Tech Ltd',jobTitle:'Software Engineer',startDate:'2018-06-01',basicSalary:52000,otherIncome:3000,otherIncomeSource:'Annual bonus',selfEmployedYears:0};
  c.employment2={type:'employed',employer:'Manchester NHS Trust',jobTitle:'Physiotherapist',basicSalary:38000,otherIncome:0,startDate:'2019-01-15'};
  c.expenditure={mortgage:0,rent:950,loans:150,creditCards:80,childcare:600,schoolFees:0,maintenance:0,travel:200,utilities:180,insurance:90,other:150,dependants:1,dependantAges:'2'};
- c.demands={mortgageType:'purchase',loanAmount:280000,term:30,repayment:'capital-and-interest',priorityRate:false,priorityCertainty:true,priorityFlexibility:true,priorityPortability:false,additionalNeeds:'Planning to have a second child in 2-3 years. Want option to overpay without penalty.'};
+ c.demands={mortgageType:'Access',loanAmount:280000,term:30,repayment:'capital-and-interest',priorityRate:false,priorityCertainty:true,priorityFlexibility:true,priorityPortability:false,additionalNeeds:'Planning to have a second child in 2-3 years. Want option to overpay without penalty.'};
  c.credit={adverse:false,ccjs:false,defaults:false,iva:false,bankruptcy:false,missedPayments:false,paydayLoans:false,notes:'Clean credit history. Both applicants on electoral roll.'};
  c.aml={idVerified:true,addressVerified:true,sourceOfDeposit:'savings',depositAmount:50000,giftLetter:false,giftorName:'',giftorRelationship:'',sanctionsChecked:true,sanctionsMatch:false,pepStatus:false,riskGrade:'low',riskReasons:[],cddComplete:true,notes:''};
  c.vulnerable={identified:false,category:'',details:'',adjustments:'',communicationPrefs:'',reviewDate:''};
